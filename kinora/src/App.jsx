@@ -1,5 +1,11 @@
+import Logo from "./components/common/Logo/Logo";
+
+
 function App(){
-  return <h1>Kinora</h1>
+  return 
+        
+    
+  
 }
 
 export default App;
