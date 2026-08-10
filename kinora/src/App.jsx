@@ -1,11 +1,9 @@
-import Logo from "./components/common/Logo/Logo";
-
-
-function App(){
-  return 
-        
-    
-  
+import Header from "./components/Header/Header";
+function App() {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
-
 export default App;

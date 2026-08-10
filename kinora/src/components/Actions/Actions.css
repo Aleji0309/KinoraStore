@@ -1,0 +1,29 @@
+.header__actions {
+    display: flex;
+    gap: 1rem;
+    font-size: var(--font-size-md);
+
+}
+
+.search-box-pill {
+    display: flex;
+    gap: 1rem;
+    border-radius: 50px;
+    border: 1px solid var(--color-fog);
+    padding: 0.5rem 1rem;
+
+}
+
+.search-box-pill input:focus {
+    outline: none;
+}
+
+.search-box-pill:focus-within {
+    border: 1px solid var(--color-sky);
+}
+
+.search-icon {
+    font-size: 16px;
+    color: var(--color-fog);
+    margin-right: 12px;
+}

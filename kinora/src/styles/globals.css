@@ -1,0 +1,25 @@
+:root {
+  /* Kinora brand */
+  --color-sky: #4c8dff;
+  --color-bloom: #ff9a3d;
+  --color-leaf: #62c18b;
+  --color-iris: #a78bfa;
+  --color-sun: #f6c453;
+
+  /* Backgrounds */
+  --color-paper: #faf8f4;
+  --color-white: #ffffff;
+
+  /* Text */
+  --color-ink: #2d2d2d;
+  --color-fog: #5f6368;
+
+  /* Borders */
+  --color-border: #e6e8eb;
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.125rem;
+}

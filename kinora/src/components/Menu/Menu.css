@@ -1,0 +1,15 @@
+.header__nav {
+    display: flex;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: var(--color-ink);
+    font-size: var(--font-size-md);
+}
+
+.header__nav a:hover {
+    color: var(--color-sky);
+}
