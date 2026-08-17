@@ -1,9 +1,36 @@
 .header {
-  display: flex;
-  gap: 20rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 3rem);
   align-items: center;
-  justify-content: center;
   color: var(--color-ink);
   width: 100%;
-  padding: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 4rem);
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+@media (max-width: 64rem) {
+  .header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .header__actions {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 40rem) {
+  .header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.875rem;
+    justify-items: center;
+    padding: 0.875rem 1rem;
+  }
+
+  .header__actions {
+    grid-column: auto;
+  }
 }

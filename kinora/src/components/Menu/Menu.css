@@ -1,15 +1,36 @@
 .header__nav {
-    display: flex;
-    gap: 1rem;
-    font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  font-weight: bold;
 }
 
 .header__nav a {
-    text-decoration: none;
-    color: var(--color-ink);
-    font-size: var(--font-size-md);
+  color: var(--color-ink);
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.25rem;
+  font-size: var(--font-size-md);
+  line-height: 1.2;
+  text-decoration: none;
 }
 
 .header__nav a:hover {
-    color: var(--color-sky);
+  color: var(--color-sky);
+}
+
+.header__nav a:focus-visible {
+  outline: 3px solid var(--color-sky);
+  outline-offset: 2px;
+}
+
+@media (max-width: 40rem) {
+  .header__nav {
+    width: 100%;
+    gap: 0.5rem 1rem;
+  }
+
+  .header__nav a {
+    font-size: var(--font-size-sm);
+  }
 }
