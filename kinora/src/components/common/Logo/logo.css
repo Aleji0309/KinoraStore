@@ -1,4 +1,12 @@
 .logo {
-    width: 300px;
-    height: 50%;
+  display: block;
+  width: clamp(10rem, 18vw, 13.75rem);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 40rem) {
+  .logo {
+    width: 10rem;
+  }
 }

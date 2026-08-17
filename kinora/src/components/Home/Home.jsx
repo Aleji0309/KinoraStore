@@ -1,0 +1,20 @@
+import HeroSection from "./HeroSection";
+import CategoriesSection from "./CategoriesSection";
+import FeaturedProducts from "./FeaturedProducts";
+import ValueSection from "./ValueSection";
+import Footer from "./Footer";
+import "./Home.css";
+const Home = () => {
+  return (
+    <>
+      <main>
+        <HeroSection />
+        <CategoriesSection />
+        <FeaturedProducts />
+        <ValueSection />
+      </main>
+      <Footer />
+    </>
+  );
+};
+export default Home;

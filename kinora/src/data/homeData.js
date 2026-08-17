@@ -1,0 +1,68 @@
+export const needs = [
+  {
+    id: "ruido-y-comodidad",
+    title: "¿Te abruma el ruido?",
+    description: "Encuentra opciones para hacer algunos espacios y momentos más cómodos.",
+    icon: "sound",
+    tone: "sky",
+    categoryRefs: ["sensorial"],
+    tags: ["ruido", "comodidad", "espacios"],
+  },
+  {
+    id: "enfoque-y-tareas",
+    title: "¿Te cuesta enfocarte?",
+    description: "Recursos para acompañarte al estudiar, trabajar o volver a una tarea.",
+    icon: "focus",
+    tone: "leaf",
+    categoryRefs: ["logica-y-enfoque", "organizacion"],
+    tags: ["enfoque", "estudio", "trabajo", "tareas"],
+  },
+  {
+    id: "organizacion-cotidiana",
+    title: "¿Se te complica organizarte?",
+    description: "Apoyos visuales para ordenar tareas, rutinas, tiempo y pendientes.",
+    icon: "calendar",
+    tone: "sun",
+    categoryRefs: ["organizacion"],
+    tags: ["tareas", "rutinas", "tiempo", "pendientes"],
+  },
+  {
+    id: "manos-ocupadas",
+    title: "¿Necesitas mantener tus manos ocupadas?",
+    description: "Opciones sensoriales para movimiento, tacto y estimulación.",
+    icon: "hand",
+    tone: "iris",
+    categoryRefs: ["sensorial"],
+    tags: ["movimiento", "tacto", "estimulacion", "manos-ocupadas"],
+  },
+];
+export const featuredProducts = [
+  {
+    name: "Kit sensorial de escritorio",
+    category: "Sensorial",
+    price: "$349 MXN",
+    visual: "sensory",
+    tone: "sky",
+  },
+  {
+    name: "Planificador semanal visual",
+    category: "Organización",
+    price: "$289 MXN",
+    visual: "calendar",
+    tone: "leaf",
+  },
+  {
+    name: "Reto de lógica en madera",
+    category: "Lógica y enfoque",
+    price: "$399 MXN",
+    visual: "puzzle",
+    tone: "sun",
+  },
+  {
+    name: "Guía para días más amables",
+    category: "Libros",
+    price: "$319 MXN",
+    visual: "book",
+    tone: "iris",
+  },
+];
