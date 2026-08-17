@@ -36,6 +36,15 @@ export const needs = [
     tags: ["movimiento", "tacto", "estimulacion", "manos-ocupadas"],
   },
 ];
+export const catalogCategories = [
+  { id: "juguetes-sensoriales", title: "Juguetes sensoriales", icon: "sensory", tone: "sky", slug: "juguetes-sensoriales" },
+  { id: "enfoque-concentracion", title: "Enfoque y concentración", icon: "focus", tone: "bloom", slug: "enfoque-y-concentracion" },
+  { id: "organizacion-productividad", title: "Organización y productividad", icon: "calendar", tone: "leaf", slug: "organizacion-y-productividad" },
+  { id: "bienestar-regulacion", title: "Bienestar y regulación", icon: "heart", tone: "iris", slug: "bienestar-y-regulacion" },
+  { id: "logica-pensamiento", title: "Juegos de lógica y pensamiento", icon: "puzzle", tone: "sun", slug: "juegos-de-logica-y-pensamiento" },
+  { id: "libros-recursos", title: "Libros y recursos", icon: "book", tone: "rose", slug: "libros-y-recursos" },
+  { id: "todas-edades", title: "Para todas las edades", icon: "community", tone: "aqua", slug: "para-todas-las-edades" },
+];
 export const featuredProducts = [
   {
     name: "Kit sensorial de escritorio",

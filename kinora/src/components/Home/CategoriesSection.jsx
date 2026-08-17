@@ -9,7 +9,7 @@ const CategoriesSection = () => {
       </div>
       <div className="category-grid">
         {needs.map((need) => (
-          <article className={`category-card category-card--${need.tone}`} key={need.id}>
+          <article className={`category-card category-card--${need.tone}`} key={need.id} tabIndex={0}>
             <span className="category-card__icon" aria-hidden="true"><Icon name={need.icon} /></span>
             <h3>{need.title}</h3>
             <p>{need.description}</p>

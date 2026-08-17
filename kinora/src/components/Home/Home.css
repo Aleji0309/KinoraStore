@@ -40,9 +40,10 @@
 }
 
 .home-hero h1 {
-  max-width: 12ch;
+  max-width: 18ch;
   margin-top: 1rem;
-  font-size: clamp(2.35rem, 5vw, 4.5rem);
+  font-size: clamp(2.15rem, 3.8vw, 3.5rem);
+  line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
@@ -114,32 +115,11 @@
 }
 
 .home-hero__visual img {
-  position: relative;
-  z-index: 2;
-  width: min(78%, 21rem);
-  height: auto;
-  filter: drop-shadow(0 1.25rem 1.5rem rgb(45 45 45 / 18%));
-}
-
-.home-hero__shape {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.home-hero__shape--sun {
-  top: 8%;
-  right: 9%;
-  width: 7rem;
-  height: 7rem;
-  background-color: color-mix(in srgb, var(--color-sun) 70%, var(--color-white));
-}
-
-.home-hero__shape--leaf {
-  bottom: -2rem;
-  left: -1rem;
-  width: 11rem;
-  height: 11rem;
-  background-color: color-mix(in srgb, var(--color-leaf) 45%, var(--color-white));
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .home-section {
@@ -197,41 +177,73 @@
 }
 
 .category-card {
-  min-height: 14rem;
-  padding: 1.4rem;
+  min-height: 17rem;
+  border-color: transparent;
+  padding: 1.75rem;
+  box-shadow: 0 0.4rem 1.25rem rgb(45 45 45 / 4%);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .category-card--sky {
-  background-color: color-mix(in srgb, var(--color-sky) 10%, var(--color-white));
+  background-color: color-mix(in srgb, var(--color-sky) 15%, var(--color-white));
 }
 
 .category-card--leaf {
-  background-color: color-mix(in srgb, var(--color-leaf) 12%, var(--color-white));
+  background-color: color-mix(in srgb, var(--color-leaf) 18%, var(--color-white));
 }
 
 .category-card--sun {
-  background-color: color-mix(in srgb, var(--color-sun) 16%, var(--color-white));
+  background-color: color-mix(in srgb, var(--color-sun) 22%, var(--color-white));
 }
 
 .category-card--iris {
-  background-color: color-mix(in srgb, var(--color-iris) 12%, var(--color-white));
+  background-color: color-mix(in srgb, var(--color-iris) 17%, var(--color-white));
 }
 
-.category-card__icon,
-.value-item > span {
+.category-card:hover {
+  border-color: color-mix(in srgb, var(--color-ink) 12%, transparent);
+  box-shadow: 0 0.75rem 1.6rem rgb(45 45 45 / 7%);
+  transform: translateY(-0.25rem);
+}
+
+.category-card:focus-visible,
+.traditional-category-card:focus-visible {
+  outline: 3px solid var(--color-sky);
+  outline-offset: 3px;
+}
+
+.category-card__icon {
   display: inline-grid;
   place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.9rem;
-  background-color: var(--color-white);
-  color: var(--color-ink);
+  width: 4.75rem;
+  height: 4.75rem;
+  border-radius: 1.4rem;
 }
 
-.category-card__icon .kinora-icon,
-.value-item .kinora-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.category-card__icon .kinora-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  stroke-width: 2.1;
+}
+
+.category-card--sky .category-card__icon {
+  background-color: color-mix(in srgb, var(--color-sky) 15%, var(--color-white));
+  color: var(--color-sky);
+}
+
+.category-card--leaf .category-card__icon {
+  background-color: color-mix(in srgb, var(--color-bloom) 14%, var(--color-white));
+  color: var(--color-bloom);
+}
+
+.category-card--sun .category-card__icon {
+  background-color: color-mix(in srgb, var(--color-leaf) 15%, var(--color-white));
+  color: color-mix(in srgb, var(--color-leaf) 82%, var(--color-ink));
+}
+
+.category-card--iris .category-card__icon {
+  background-color: color-mix(in srgb, var(--color-iris) 14%, var(--color-white));
+  color: color-mix(in srgb, var(--color-iris) 85%, var(--color-ink));
 }
 
 .category-card h3,
@@ -248,6 +260,132 @@
   margin: 0.6rem 0 0;
   color: var(--color-fog);
   font-size: var(--font-size-sm);
+}
+
+.category-card h3 {
+  margin-top: 1.75rem;
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+
+.category-card p {
+  margin-top: 0.9rem;
+  line-height: 1.55;
+}
+
+.traditional-categories {
+  padding-top: 1rem;
+}
+
+.traditional-category-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.traditional-category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  border: 1px solid transparent;
+  border-radius: 1.15rem;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.traditional-category-card:hover {
+  border-color: color-mix(in srgb, var(--color-ink) 12%, transparent);
+  box-shadow: 0 0.75rem 1.5rem rgb(45 45 45 / 8%);
+  transform: translateY(-0.2rem);
+}
+
+.traditional-category-card--sky {
+  background-color: color-mix(in srgb, var(--color-sky) 13%, var(--color-white));
+}
+
+.traditional-category-card--bloom {
+  background-color: color-mix(in srgb, var(--color-bloom) 14%, var(--color-white));
+}
+
+.traditional-category-card--leaf {
+  background-color: color-mix(in srgb, var(--color-leaf) 15%, var(--color-white));
+}
+
+.traditional-category-card--iris {
+  background-color: color-mix(in srgb, var(--color-iris) 14%, var(--color-white));
+}
+
+.traditional-category-card--sun {
+  background-color: color-mix(in srgb, var(--color-sun) 20%, var(--color-white));
+}
+
+.traditional-category-card--rose {
+  background-color: color-mix(in srgb, var(--color-bloom) 9%, color-mix(in srgb, var(--color-iris) 8%, var(--color-white)));
+}
+
+.traditional-category-card--aqua {
+  background-color: color-mix(in srgb, var(--color-sky) 8%, color-mix(in srgb, var(--color-leaf) 10%, var(--color-white)));
+}
+
+.traditional-category-card__icon {
+  display: grid;
+  place-items: center;
+  width: 4.75rem;
+  height: 4.75rem;
+  color: var(--color-ink);
+}
+
+.traditional-category-card__icon .kinora-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  stroke-width: 2.15;
+}
+
+.traditional-category-card--sky .traditional-category-card__icon {
+  color: var(--color-sky);
+}
+
+.traditional-category-card--bloom .traditional-category-card__icon {
+  color: var(--color-bloom);
+}
+
+.traditional-category-card--leaf .traditional-category-card__icon {
+  color: color-mix(in srgb, var(--color-leaf) 82%, var(--color-ink));
+}
+
+.traditional-category-card--iris .traditional-category-card__icon {
+  color: color-mix(in srgb, var(--color-iris) 85%, var(--color-ink));
+}
+
+.traditional-category-card--sun .traditional-category-card__icon {
+  color: color-mix(in srgb, var(--color-sun) 70%, var(--color-bloom));
+}
+
+.traditional-category-card--rose .traditional-category-card__icon {
+  color: color-mix(in srgb, var(--color-bloom) 58%, var(--color-iris));
+}
+
+.traditional-category-card--aqua .traditional-category-card__icon {
+  color: color-mix(in srgb, var(--color-leaf) 68%, var(--color-sky));
+}
+
+.traditional-category-card h3 {
+  margin: 0.85rem 0 0;
+  color: var(--color-ink);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.traditional-categories__more {
+  margin: 1.5rem 0 0;
+  color: var(--color-sky);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-align: center;
 }
 
 .product-card {
@@ -354,7 +492,21 @@
 }
 
 .value-item > span {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  color: var(--color-ink);
+}
+
+.value-item > span {
   background-color: color-mix(in srgb, var(--color-iris) 16%, var(--color-white));
+}
+
+.value-item .kinora-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .value-item h3 {
@@ -436,6 +588,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .traditional-category-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .value-section {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
@@ -450,8 +606,8 @@
   }
 
   .home-hero h1 {
-    max-width: 14ch;
-    font-size: clamp(2.25rem, 12vw, 3.25rem);
+    max-width: 18ch;
+    font-size: clamp(2rem, 9vw, 2.75rem);
   }
 
   .home-hero__visual {
@@ -466,6 +622,10 @@
   .product-grid,
   .home-footer__main {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .traditional-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .category-card {

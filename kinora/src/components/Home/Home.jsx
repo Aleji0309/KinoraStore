@@ -1,5 +1,6 @@
 import HeroSection from "./HeroSection";
 import CategoriesSection from "./CategoriesSection";
+import TraditionalCategoriesSection from "./TraditionalCategoriesSection";
 import FeaturedProducts from "./FeaturedProducts";
 import ValueSection from "./ValueSection";
 import Footer from "./Footer";
@@ -10,6 +11,7 @@ const Home = () => {
       <main>
         <HeroSection />
         <CategoriesSection />
+        <TraditionalCategoriesSection />
         <FeaturedProducts />
         <ValueSection />
       </main>
