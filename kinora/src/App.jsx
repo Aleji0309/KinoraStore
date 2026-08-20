@@ -1,10 +1,12 @@
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import Catalog from "./components/Catalog/Catalog";
 function App() {
+  const isCatalog = window.location.pathname === "/categorias";
   return (
     <div>
       <Header />
-      <Home />
+      {isCatalog ? <Catalog /> : <Home />}
     </div>
   );
 }
