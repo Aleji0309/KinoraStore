@@ -2,10 +2,10 @@ const magicBeansImage = "/images/products/KIN-LOG-001-main.png";
 const timeMachineImage = "/images/products/KIN-LOG-002-main.png";
 const woodenSudokuImage = "/images/products/KIN-LOG-003-main.png";
 const memoryGameImage = "/images/products/KIN-LOG-004-main.png";
-const iqDigitsImage = "/images/products/KIN-LOG-003.png";
-const iqFitImage = "/images/products/KIN-LOG-004.png";
-const flatWoodPuzzleImage = "/images/products/KIN-LOG-005.png";
-const puzzleLockImage = "/images/products/KIN-LOG-006.png";
+const iqDigitsImage = "/images/products/KIN-LOG-005-main.png";
+const iqFitImage = "/images/products/KIN-LOG-006-main.png";
+const flatWoodPuzzleImage = "/images/products/KIN-LOG-007-main.png";
+const puzzleLockImage = "/images/products/KIN-LOG-008-main.png.png";
 const woodCubeImage = "/images/products/KIN-LOG-007.png";
 const sphereMazeImage = "/images/products/KIN-LOG-008.png";
 const metalPuzzlesImage = "/images/products/KIN-LOG-009.png";
@@ -115,14 +115,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-003",
     slug: "iq-digits",
-    name: "IQ Digits",
-    shortDescription: "Desafíos con piezas numéricas para completar cada tablero.",
-    description: "Un juego compacto con retos progresivos que combina números, lógica espacial y distintas posibilidades de acomodo.",
+    name: "Number Puzzle — 120 Desafíos",
+    shortDescription: "Un rompecabezas de números y lógica, anteriormente identificado en el catálogo como IQ Digits.",
+    description: "Number Puzzle propone 120 desafíos de lógica en los que tendrás que colocar correctamente las piezas numéricas hasta completar el tablero.\n\nCada reto presenta una nueva combinación y, a medida que avanzas, tendrás que observar posiciones, descartar posibilidades y utilizar pequeñas sumas para encontrar la solución correcta.\n\nSu formato compacto permite resolver los desafíos a tu propio ritmo y poner en práctica la concentración, el razonamiento lógico, la percepción espacial y la resolución de problemas.",
     price: 299,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: iqDigitsImage,
+    images: [
+      iqDigitsImage,
+      "/images/products/KIN-LOG-005-02.png",
+      "/images/products/KIN-LOG-005-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -133,14 +138,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-004",
     slug: "iq-fit",
-    name: "IQ Fit",
-    shortDescription: "Piezas tridimensionales que se transforman al colocarlas en el tablero.",
-    description: "Un rompecabezas compacto para observar formas, rotar piezas y construir soluciones en una superficie bidimensional.",
+    name: "IQ Fit — 120 Desafíos",
+    shortDescription: "Un puzzle de lógica con piezas 3D para completar un tablero compacto.",
+    description: "IQ Fit — 120 Desafíos es un rompecabezas de lógica en el que tendrás que acomodar piezas tridimensionales dentro del tablero hasta conseguir que todas encajen correctamente.\n\nCada desafío comienza con algunas piezas colocadas en posiciones determinadas. A partir de ahí, tendrás que analizar el espacio disponible, probar diferentes orientaciones y encontrar la combinación que permita completar todo el tablero sin dejar espacios libres.\n\nSus 120 desafíos permiten avanzar progresivamente mientras pones en práctica la percepción espacial, la concentración, el pensamiento lógico y la resolución de problemas. Su tablero compacto también permite guardar las piezas y llevar los retos contigo.",
     price: 249,
     stock: 1,
     priceStatus: "temporary",
     currency: "MXN",
     image: iqFitImage,
+    images: [
+      iqFitImage,
+      "/images/products/KIN-LOG-006-02.png",
+      "/images/products/KIN-LOG-006-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -151,14 +161,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-005",
     slug: "puzzle-de-madera-plano",
-    name: "Puzzle de madera plano",
-    shortDescription: "Piezas geométricas de madera para construir un tablero completo.",
-    description: "Un reto manipulativo para poner a prueba lógica, paciencia y observación mientras exploras distintas formas de resolverlo.",
+    name: "Rompecabezas Tetris de Madera",
+    shortDescription: "Un puzzle geométrico de encaje con piezas de madera tipo Tetris.",
+    description: "Rompecabezas Tetris de Madera es un desafío de lógica en el que tendrás que combinar piezas geométricas de diferentes formas hasta conseguir que todas encajen dentro del tablero.\n\nAunque las piezas parecen sencillas, cada posición modifica el espacio disponible para las demás. Tendrás que probar distintas combinaciones, girar las piezas y anticipar cómo aprovechar cada espacio hasta encontrar una solución.\n\nSu formato físico permite experimentar una y otra vez con nuevas configuraciones mientras pones en práctica el pensamiento lógico, la percepción espacial, la planificación y la resolución de problemas.",
     price: 299,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: flatWoodPuzzleImage,
+    images: [
+      flatWoodPuzzleImage,
+      "/images/products/KIN-LOG-007-02.png",
+      "/images/products/KIN-LOG-007-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -169,14 +184,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-006",
     slug: "puzzle-lock-candado-de-logica",
-    name: "Puzzle Lock / Candado de lógica",
-    shortDescription: "Un pequeño candado de lógica con recorrido y llave.",
-    description: "Un desafío compacto para estudiar el mecanismo, probar recorridos y descubrir cómo liberar la pieza interior.",
+    name: "Laberinto Candado",
+    shortDescription: "Un puzzle de candado deslizable (sliding lock) con un recorrido de lógica.",
+    description: "Laberinto Candado convierte un pequeño candado en un reto de lógica. Para abrirlo tendrás que explorar su recorrido, identificar el camino correcto y avanzar por el laberinto hasta conseguir liberar el mecanismo.\n\nSu diseño compacto permite probar diferentes movimientos y volver a intentarlo cuando una ruta no funciona. Resolverlo requiere observar el recorrido, anticipar los siguientes pasos y mantener la atención hasta encontrar la salida.\n\nEs un rompecabezas pequeño y portátil para disfrutar como reto individual y poner en práctica el pensamiento lógico, la concentración y la resolución de problemas.",
     price: 129,
     stock: 2,
     priceStatus: "temporary",
     currency: "MXN",
     image: puzzleLockImage,
+    images: [
+      puzzleLockImage,
+      "/images/products/KIN-LOG-008-02.png",
+      "/images/products/KIN-LOG-008-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -425,10 +445,10 @@ const productMetadata = {
   "KIN-LOG-001": { skills: ["pensamiento lógico", "concentración", "reconocimiento de patrones", "resolución de problemas"] },
   "KIN-LOG-002": { skills: ["pensamiento lógico", "concentración", "planificación", "resolución de problemas"], ageRecommendation: "14 años en adelante" },
   "KIN-FOC-001": { skills: ["pensamiento lógico", "deducción", "reconocimiento de patrones", "resolución de problemas", "estrategia"], ageRecommendation: "5 años en adelante" },
-  "KIN-LOG-003": { skills: ["lógica", "razonamiento espacial", "resolución de problemas"], ageRecommendation: "7 años en adelante" },
-  "KIN-LOG-004": { skills: ["razonamiento espacial", "lógica", "concentración"], ageRecommendation: "6 años en adelante" },
-  "KIN-LOG-005": { skills: ["razonamiento espacial", "lógica", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
-  "KIN-LOG-006": { skills: ["lógica", "observación", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-003": { skills: ["pensamiento lógico", "concentración", "percepción espacial", "resolución de problemas", "razonamiento numérico"], ageRecommendation: "3 años en adelante" },
+  "KIN-LOG-004": { skills: ["pensamiento lógico", "concentración", "percepción espacial", "planificación", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-005": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "resolución de problemas", "pensamiento creativo"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-006": { skills: ["pensamiento lógico", "concentración", "resolución de problemas", "planificación", "paciencia"], ageRecommendation: "14 años en adelante" },
   "KIN-LOG-007": { skills: ["razonamiento espacial", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
   "KIN-LOG-008": { skills: ["coordinación", "concentración", "razonamiento espacial"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-009": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
@@ -511,20 +531,74 @@ const productSpecifications = {
     ],
   },
   "KIN-LOG-003": {
-    primary: [{ label: "Modelo", value: "IQ Digits" }, { label: "Tipo de juego", value: "Rompecabezas lógico" }],
-    details: [{ label: "Portátil", value: true }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico" },
+      { label: "Modalidad", value: "Colocación de piezas numéricas" },
+      { label: "Número de desafíos", value: "120" },
+      { label: "Jugadores", value: "1" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Niveles de juego", value: "4" },
+      { label: "Incluye", value: "1 tablero" },
+      { label: "Fichas numéricas", value: "10" },
+      { label: "Libro de retos", value: true },
+      { label: "Nivel de desafío", value: "Progresivo" },
+      { label: "Mecánica", value: "Completar el tablero siguiendo las condiciones de cada reto" },
+      { label: "Uso de operaciones", value: "Algunos desafíos requieren sumas sencillas" },
+    ],
   },
   "KIN-LOG-004": {
-    primary: [{ label: "Modelo", value: "IQ Fit" }, { label: "Tipo de juego", value: "Rompecabezas espacial" }],
-    details: [{ label: "Portátil", value: true }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico" },
+      { label: "Modalidad", value: "Colocación de piezas 3D" },
+      { label: "Número de desafíos", value: "120" },
+      { label: "Jugadores", value: "1" },
+      { label: "Formato", value: "Físico" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Incluye", value: "1 tablero" },
+      { label: "Piezas", value: "10 figuras 3D" },
+      { label: "Libro de retos", value: "Sí, con 120 desafíos" },
+      { label: "Idioma del material", value: "Inglés" },
+      { label: "Nivel de desafío", value: "Progresivo" },
+    ],
   },
   "KIN-LOG-005": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas geométrico" }, { label: "Material", value: "Madera" }],
-    details: [{ label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico" },
+      { label: "Modalidad", value: "Encaje y organización de piezas" },
+      { label: "Material", value: "Madera" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Jugadores", value: "1" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Forma del tablero", value: "Cuadrada" },
+      { label: "Diseño", value: "Piezas geométricas tipo Tetris" },
+      { label: "Nivel de desafío", value: "Medio" },
+      { label: "Acabado", value: "Piezas de madera" },
+      { label: "Mecánica", value: "Completar el tablero utilizando todas las piezas" },
+    ],
   },
   "KIN-LOG-006": {
-    primary: [{ label: "Tipo de juego", value: "Candado de lógica" }],
-    details: [{ label: "Portátil", value: true }, { label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica" },
+      { label: "Modalidad", value: "Laberinto" },
+      { label: "Diseño", value: "Forma de candado" },
+      { label: "Material", value: "Plástico" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Mecánica", value: "Resolver el recorrido del laberinto para liberar el mecanismo" },
+      { label: "Nivel de desafío", value: "Medio" },
+      { label: "Jugadores", value: "1" },
+      { label: "Uso recomendado", value: "Recreativo" },
+      { label: "Color", value: "Negro y blanco" },
+    ],
   },
   "KIN-LOG-007": {
     primary: [{ label: "Tipo de juego", value: "Rompecabezas 3D" }, { label: "Material", value: "Madera" }],
