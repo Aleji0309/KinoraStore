@@ -1,14 +1,14 @@
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
-import { useCart } from "../../context/cartContext";
 import "./ProductDetail.css";
-const StockLabel = ({ stock }) => {
+const StockLabel = ({ product }) => {
+  if (product.stockStatus === "order_only") return <span className="product-detail__stock product-detail__stock--order">Disponible por encargo</span>;
+  const { stock } = product;
   if (stock === 0) return <span className="product-detail__stock product-detail__stock--sold-out">Agotado</span>;
   if (stock === 1 || stock === 2) return <span className="product-detail__stock product-detail__stock--low">¡Últimas unidades!</span>;
-  return null;
+  return <span className="product-detail__stock product-detail__stock--available">Disponible</span>;
 };
 const ProductDetail = ({ product }) => {
-  const { items, addToCart, openCart } = useCart();
   if (!product) {
     return (
       <>
@@ -22,14 +22,9 @@ const ProductDetail = ({ product }) => {
       </>
     );
   }
-  const cartItem = items.find((item) => item.id === product.id);
-  const isAtStockLimit = cartItem?.quantity >= product.stock;
-  const isUnavailable = product.stock === 0 || isAtStockLimit;
-  const handleAddToCart = () => {
-    if (isUnavailable) return;
-    addToCart(product);
-    openCart();
-  };
+  const orderNote = product.stockStatus === "order_only" ? " Vi que está disponible por encargo." : "";
+  const inquiryMessage = `Hola, vi ${product.name} en Kinora y me interesa.${orderNote} ¿Me puedes dar más información?`;
+  const inquiryUrl = `https://wa.me/525652069271?text=${encodeURIComponent(inquiryMessage)}`;
   return (
     <>
       <main className="product-detail">
@@ -42,14 +37,16 @@ const ProductDetail = ({ product }) => {
             <span className="product-detail__category">{product.category}</span>
             <h1>{product.name}</h1>
             <strong className="product-detail__price">{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
-            <StockLabel stock={product.stock} />
+            <StockLabel product={product} />
             <p className="product-detail__description">{product.description}</p>
+            <dl className="product-detail__metadata">
+              <div><dt>Habilidades</dt><dd>{product.skills.join(", ")}</dd></div>
+              {product.ageRecommendation && <div><dt>Edad recomendada</dt><dd>{product.ageRecommendation}</dd></div>}
+            </dl>
             <div className="product-detail__tags" aria-label="Características del producto">
               {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            <button type="button" className="product-detail__add" disabled={isUnavailable} onClick={handleAddToCart}>
-              {product.stock === 0 ? "Agotado" : isAtStockLimit ? "Máximo disponible" : "Agregar al carrito"}
-            </button>
+            <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>
           </div>
         </div>
       </main>

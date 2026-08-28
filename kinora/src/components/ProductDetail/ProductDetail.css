@@ -65,17 +65,26 @@
   text-transform: uppercase;
 }
 
-.product-detail h1,
+.product-detail h1 {
+  max-width: 100%;
+  margin: 0.6rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+}
+
 .product-not-found h1 {
   margin: 0.75rem 0 0;
   color: var(--color-ink);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.035em;
 }
 
 .product-detail__price {
-  margin-top: 1.25rem;
+  margin-top: 0.85rem;
   color: var(--color-ink);
   font-size: clamp(1.35rem, 3vw, 1.75rem);
 }
@@ -86,7 +95,7 @@
 }
 
 .product-detail__stock {
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   border: 1px solid var(--color-white);
   border-radius: 999px;
   padding: 0.35rem 0.7rem;
@@ -105,8 +114,18 @@
   color: var(--color-ink);
 }
 
+.product-detail__stock--available {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.product-detail__stock--order {
+  background-color: var(--color-sky);
+  color: var(--color-white);
+}
+
 .product-detail__description {
-  margin: 1.5rem 0 0;
+  margin: 1.1rem 0 0;
   color: var(--color-fog);
   font-size: var(--font-size-lg);
   line-height: 1.65;
@@ -119,6 +138,28 @@
   margin-top: 1.5rem;
 }
 
+.product-detail__metadata {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+.product-detail__metadata div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.product-detail__metadata dt {
+  color: var(--color-ink);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.product-detail__metadata dd {
+  margin: 0;
+  color: var(--color-fog);
+}
+
 .product-detail__tags span {
   border: 1px solid var(--color-border);
   border-radius: 999px;
@@ -129,6 +170,8 @@
 }
 
 .product-detail__add {
+  display: inline-flex;
+  align-items: center;
   min-height: 3rem;
   margin-top: 1.75rem;
   border: 0;
@@ -138,6 +181,7 @@
   padding: 0.65rem 1.15rem;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .product-detail__add:hover:not(:disabled) {
@@ -168,6 +212,10 @@
 }
 
 @media (max-width: 44rem) {
+  .product-detail h1 {
+    font-size: 1.75rem;
+  }
+
   .product-detail__layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
@@ -175,5 +223,11 @@
 
   .product-detail__content {
     align-items: flex-start;
+  }
+}
+
+@media (min-width: 44.01rem) and (max-width: 64rem) {
+  .product-detail h1 {
+    font-size: clamp(1.75rem, 4vw, 2.125rem);
   }
 }

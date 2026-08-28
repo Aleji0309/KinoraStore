@@ -9,13 +9,14 @@ const Footer = () => {
         </div>
         <nav className="home-footer__nav" aria-label="Navegación del pie de página">
           <h2>Explora</h2>
-          <a href="#productos">Productos</a>
-          <a href="#categorias">Categorías</a>
-          <a href="#kinora">Nosotros</a>
+          <a href="/categorias">Productos</a>
+          <a href="/categorias">Categorías</a>
+          <a href="/nosotros">Nosotros</a>
         </nav>
         <div className="home-footer__contact">
           <h2>Conecta</h2>
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://www.instagram.com/kinoraneurostore/" target="_blank" rel="noopener noreferrer">@kinoraneurostore</a>
+          <a href="https://wa.me/525652069271" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="mailto:contacto@kinora.com">Contacto</a>
         </div>
       </div>

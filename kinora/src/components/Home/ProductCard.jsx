@@ -6,11 +6,10 @@ const ProductCard = ({ product }) => {
         <span><Icon name={product.visual} /></span>
       </div>
       <div className="product-card__content">
-        <span className="product-card__category">{product.category}</span>
         <h3>{product.name}</h3>
+        <p>{product.description}</p>
         <div className="product-card__footer">
-          <strong>{product.price}</strong>
-          <span>Próximamente</span>
+          <span>{product.status}</span>
         </div>
       </div>
     </article>

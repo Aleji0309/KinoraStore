@@ -14,7 +14,7 @@ const TraditionalCategoriesSection = () => {
           </article>
         ))}
       </div>
-      <p className="traditional-categories__more">Ver todas las categorías →</p>
+      <p className="traditional-categories__more"><a href="/categorias">Ver catálogo completo →</a></p>
     </section>
   );
 };

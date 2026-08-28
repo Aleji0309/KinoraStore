@@ -19,7 +19,7 @@ const ballPyramidImage = "/images/products/KIN-LOG-012.png";
 const sixMetalPuzzlesImage = "/images/products/KIN-LOG-013.png";
 const metalPuzzleTrioImage = "/images/products/KIN-LOG-014.png";
 const metalChallengeTrioImage = "/images/products/KIN-LOG-015.png";
-export const products = [
+const catalogProducts = [
   {
     id: "KIN-FID-001",
     slug: "fijoles-magicos",
@@ -76,12 +76,12 @@ export const products = [
   },
   {
     id: "KIN-FOC-001",
-    slug: "juego-electronico-de-memoria",
-    name: "Juego electrónico de memoria / secuencias",
-    shortDescription: "Luces, botones y secuencias para observar, recordar y responder.",
-    description: "Un juego electrónico de ritmo ágil que propone seguir patrones de luz y explorar diferentes secuencias paso a paso.",
-    price: 899,
-    stock: 1,
+    slug: "giiker-decoder",
+    name: "Giiker Decoder",
+    shortDescription: "Un juego electrónico de deducción para descifrar códigos de colores.",
+    description: "Crea o resuelve códigos de colores usando pistas y lógica hasta encontrar la combinación correcta.",
+    price: 1050,
+    stock: null,
     priceStatus: "temporary",
     currency: "MXN",
     image: memoryGameImage,
@@ -90,7 +90,7 @@ export const products = [
     needs: ["enfoque-y-tareas"],
     tags: ["electronico", "memoria", "secuencias", "luces"],
     featured: true,
-    stockStatus: "in_stock",
+    stockStatus: "order_only",
   },
   {
     id: "KIN-LOG-003",
@@ -221,10 +221,10 @@ export const products = [
   {
     id: "KIN-LOG-010",
     slug: "puzzle-cube-lineas-de-colores",
-    name: "Puzzle Cube de líneas de colores",
+    name: "Cubo de Línea de Colores",
     shortDescription: "Un cubo giratorio para conectar recorridos de distintos colores.",
     description: "Un puzzle visual que invita a girar sus piezas y construir líneas continuas alrededor de todas sus caras.",
-    price: 279,
+    price: 299,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
@@ -277,7 +277,7 @@ export const products = [
     slug: "fidget-2-en-1",
     name: "Fidget 2 en 1",
     shortDescription: "Dos pistas de bolitas deslizables en un solo fidget manipulable.",
-    description: "Fidget manipulable 2 en 1 con pistas de bolitas deslizables, diseñado para mantener las manos ocupadas mediante movimientos repetitivos y ayudar a canalizar la inquietud.",
+    description: "Fidget manipulable 2 en 1 con pistas de bolitas deslizables para recorrer una y otra vez con movimientos sencillos.",
     price: 199,
     stock: 1,
     priceStatus: "temporary",
@@ -314,7 +314,7 @@ export const products = [
     name: "Cubo Calendario 7x7",
     shortDescription: "Un cubo configurable con fechas, días de la semana y meses.",
     description: "Rompecabezas tipo cubo que permite configurar fechas, días de la semana y meses. Un reto de lógica que puede cambiar todos los días.",
-    price: 479,
+    price: 499,
     stock: 2,
     priceStatus: "temporary",
     currency: "MXN",
@@ -399,3 +399,29 @@ export const products = [
     stockStatus: "in_stock",
   },
 ];
+
+const productMetadata = {
+  "KIN-FID-001": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-001": { skills: ["lógica", "reconocimiento de patrones", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-002": { skills: ["lógica", "concentración", "razonamiento numérico"], ageRecommendation: "8 años en adelante" },
+  "KIN-FOC-001": { skills: ["lógica", "deducción", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-003": { skills: ["lógica", "razonamiento espacial", "resolución de problemas"], ageRecommendation: "7 años en adelante" },
+  "KIN-LOG-004": { skills: ["razonamiento espacial", "lógica", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-005": { skills: ["razonamiento espacial", "lógica", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-006": { skills: ["lógica", "observación", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-007": { skills: ["razonamiento espacial", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-008": { skills: ["coordinación", "concentración", "razonamiento espacial"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-009": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-010": { skills: ["lógica visual", "razonamiento espacial", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-FID-002": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-FID-003": { skills: ["coordinación manual", "exploración táctil"], ageRecommendation: "5 años en adelante" },
+  "KIN-FID-004": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-FID-005": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-011": { skills: ["lógica", "planificación", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-012": { skills: ["razonamiento espacial", "lógica", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-013": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-014": { skills: ["observación", "lógica", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-015": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+};
+
+export const products = catalogProducts.map((product) => ({ ...product, ...productMetadata[product.id] }));
