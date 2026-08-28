@@ -102,13 +102,11 @@
   color: var(--color-white);
 }
 
-.catalog-product-card__skills,
-.catalog-product-card__age {
+.catalog-product-card__skills {
   font-size: var(--font-size-xs) !important;
 }
 
-.catalog-product-card__skills strong,
-.catalog-product-card__age strong {
+.catalog-product-card__skills strong {
   color: var(--color-ink);
 }
 

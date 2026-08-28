@@ -41,7 +41,6 @@ const ProductDetail = ({ product }) => {
             <p className="product-detail__description">{product.description}</p>
             <dl className="product-detail__metadata">
               <div><dt>Habilidades</dt><dd>{product.skills.join(", ")}</dd></div>
-              {product.ageRecommendation && <div><dt>Edad recomendada</dt><dd>{product.ageRecommendation}</dd></div>}
             </dl>
             <div className="product-detail__tags" aria-label="Características del producto">
               {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
