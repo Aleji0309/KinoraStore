@@ -1,7 +1,7 @@
-const magicBeansImage = "/images/products/KIN-FID-001.png";
-const timeMachineImage = "/images/products/KIN-LOG-001.png";
-const woodenSudokuImage = "/images/products/KIN-LOG-002.png";
-const memoryGameImage = "/images/products/KIN-FOC-001.png";
+const magicBeansImage = "/images/products/KIN-LOG-001-main.png";
+const timeMachineImage = "/images/products/KIN-LOG-002-main.png";
+const woodenSudokuImage = "/images/products/KIN-LOG-003-main.png";
+const memoryGameImage = "/images/products/KIN-LOG-004-main.png";
 const iqDigitsImage = "/images/products/KIN-LOG-003.png";
 const iqFitImage = "/images/products/KIN-LOG-004.png";
 const flatWoodPuzzleImage = "/images/products/KIN-LOG-005.png";
@@ -23,32 +23,42 @@ const catalogProducts = [
   {
     id: "KIN-FID-001",
     slug: "fijoles-magicos",
-    name: "Fijoles Mágicos",
-    shortDescription: "Un fidget manipulativo con cuentas móviles para explorar con las manos.",
-    description: "Una pieza sensorial de movimiento continuo que invita a girar, deslizar y descubrir distintos recorridos con las manos.",
+    name: "Cubo Mágico de Frijol con Rotación",
+    shortDescription: "Un rompecabezas lógico de rotación con pequeñas esferas de colores.",
+    description: "Un reto de lógica y coordinación que combina movimiento, estrategia y paciencia. Gira y desplaza las pequeñas esferas de colores hasta lograr ordenarlas correctamente en cada sección. Cada movimiento cambia la posición de las piezas, así que tendrás que observar, planear y probar distintas combinaciones para resolverlo.\n\nEs un desafío compacto y entretenido para poner a trabajar el pensamiento lógico, la concentración y la resolución de problemas mientras juegas a tu propio ritmo.",
     price: 149,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: magicBeansImage,
+    images: [
+      magicBeansImage,
+      "/images/products/KIN-LOG-001-02.png",
+      "/images/products/KIN-LOG-001-03.png",
+    ],
     category: "Juguetes sensoriales",
     categoryRefs: ["juguetes-sensoriales", "fidget"],
     needs: ["manos-ocupadas", "enfoque-y-tareas"],
-    tags: ["fidget", "manipulativo", "movimiento", "cuentas"],
+    tags: ["cubo", "frijol", "mágico", "rotación", "rompecabezas", "lógico"],
     featured: true,
     stockStatus: "in_stock",
   },
   {
     id: "KIN-LOG-001",
     slug: "time-machine",
-    name: "Time Machine",
-    shortDescription: "Un cubo numérico para combinar movimientos, observación y estrategia.",
-    description: "Un reto giratorio con números y colores para explorar patrones, probar secuencias y encontrar nuevas formas de resolverlo.",
+    name: "Cubo Máquina del Tiempo (Time Machine)",
+    shortDescription: "Un cubo de números con una mecánica de rompecabezas lógico.",
+    description: "El Time Machine lleva el clásico reto de los cubos a una mecánica diferente. Sus números y piezas giratorias convierten cada movimiento en un pequeño problema que tendrás que observar, analizar y reorganizar hasta encontrar la combinación correcta.\n\nResolverlo requiere probar movimientos, reconocer patrones y anticipar cómo cada giro modifica las demás piezas. Es un reto entretenido para ejercitar el pensamiento lógico, la concentración, la memoria visual y la resolución de problemas mientras buscas devolver cada número a su posición.",
     price: 399,
     stock: 6,
     priceStatus: "temporary",
     currency: "MXN",
     image: timeMachineImage,
+    images: [
+      timeMachineImage,
+      "/images/products/KIN-LOG-002-02.png",
+      "/images/products/KIN-LOG-002-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -59,14 +69,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-002",
     slug: "sudoku-de-madera",
-    name: "Sudoku de madera",
-    shortDescription: "El clásico reto numérico en una versión de madera agradable de manipular.",
-    description: "Un tablero reutilizable para practicar observación y razonamiento a través de distintas combinaciones numéricas.",
+    name: "Sudoku de Madera 9×9",
+    shortDescription: "Un rompecabezas de lógica en cuadrícula 9×9 (9x9) con piezas de madera.",
+    description: "Un clásico reto de lógica llevado a un formato físico. Este Sudoku de madera utiliza una cuadrícula 9×9 con piezas numeradas que puedes colocar, mover y reorganizar mientras resuelves cada desafío.\n\nIncluye libro de retos con sus soluciones y un juego adicional de piezas de repuesto, para que tengas todo lo necesario para seguir jugando y enfrentarte a nuevos desafíos.\n\nCada reto invita a observar, analizar posibilidades y planear cada movimiento, poniendo en práctica el pensamiento lógico, la concentración, la planificación y la resolución de problemas. Su formato de madera convierte el Sudoku en una experiencia más tangible y entretenida que resolverlo únicamente en papel o pantalla.",
     price: 349,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: woodenSudokuImage,
+    images: [
+      woodenSudokuImage,
+      "/images/products/KIN-LOG-003-02.png",
+      "/images/products/KIN-LOG-003-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -77,14 +92,19 @@ const catalogProducts = [
   {
     id: "KIN-FOC-001",
     slug: "giiker-decoder",
-    name: "Giiker Decoder",
-    shortDescription: "Un juego electrónico de deducción para descifrar códigos de colores.",
-    description: "Crea o resuelve códigos de colores usando pistas y lógica hasta encontrar la combinación correcta.",
+    name: "GiiKER Super Decoder",
+    shortDescription: "Un descifrador portátil y rompecabezas de lógica para resolver códigos de colores.",
+    description: "Descubre el código antes de quedarte sin intentos. GiiKER Super Decoder es un juego de lógica y deducción en el que cada partida plantea una combinación secreta de colores que tendrás que descifrar utilizando las pistas que recibes después de cada intento.\n\nCada decisión importa: observa las pistas, descarta posibilidades y modifica tu siguiente combinación hasta encontrar la respuesta. Con más de 600 desafíos y dificultad progresiva, las partidas cambian constantemente y te invitan a desarrollar nuevas estrategias.\n\nPuede jugarse de manera individual o entre dos jugadores, convirtiéndolo en un reto compacto para poner en práctica la deducción, el reconocimiento de patrones y la resolución de problemas. Su formato portátil permite llevarlo fácilmente y jugar partidas rápidas en distintos lugares.",
     price: 1050,
     stock: null,
     priceStatus: "temporary",
     currency: "MXN",
     image: memoryGameImage,
+    images: [
+      memoryGameImage,
+      "/images/products/KIN-LOG-004-02.png",
+      "/images/products/KIN-LOG-004-03.png",
+    ],
     category: "Enfoque y concentración",
     categoryRefs: ["enfoque-y-concentracion"],
     needs: ["enfoque-y-tareas"],
@@ -401,10 +421,10 @@ const catalogProducts = [
 ];
 
 const productMetadata = {
-  "KIN-FID-001": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
-  "KIN-LOG-001": { skills: ["lógica", "reconocimiento de patrones", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
-  "KIN-LOG-002": { skills: ["lógica", "concentración", "razonamiento numérico"], ageRecommendation: "8 años en adelante" },
-  "KIN-FOC-001": { skills: ["lógica", "deducción", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
+  "KIN-FID-001": { skills: ["pensamiento lógico", "concentración", "resolución de problemas", "coordinación"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-001": { skills: ["pensamiento lógico", "concentración", "reconocimiento de patrones", "resolución de problemas"] },
+  "KIN-LOG-002": { skills: ["pensamiento lógico", "concentración", "planificación", "resolución de problemas"], ageRecommendation: "14 años en adelante" },
+  "KIN-FOC-001": { skills: ["pensamiento lógico", "deducción", "reconocimiento de patrones", "resolución de problemas", "estrategia"], ageRecommendation: "5 años en adelante" },
   "KIN-LOG-003": { skills: ["lógica", "razonamiento espacial", "resolución de problemas"], ageRecommendation: "7 años en adelante" },
   "KIN-LOG-004": { skills: ["razonamiento espacial", "lógica", "concentración"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-005": { skills: ["razonamiento espacial", "lógica", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
@@ -424,4 +444,150 @@ const productMetadata = {
   "KIN-LOG-015": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
 };
 
-export const products = catalogProducts.map((product) => ({ ...product, ...productMetadata[product.id] }));
+const productSpecifications = {
+  "KIN-FID-001": {
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico" },
+      { label: "Material", value: "Plástico" },
+      { label: "Color", value: "Azul" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Mecanismo", value: "Rotación y desplazamiento de bolitas" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Nivel de desafío", value: "Medio" },
+      { label: "Número de piezas", value: "1 unidad" },
+      { label: "Magnético", value: false },
+      { label: "Uso recomendado", value: "Recreativo" },
+    ],
+  },
+  "KIN-LOG-001": {
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico" },
+      { label: "Modelo", value: "Time Machine" },
+      { label: "Configuración", value: "2×2×2" },
+      { label: "Estructura", value: "Stickerless" },
+      { label: "Material", value: "Plástico" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Cantidad de lados", value: "6" },
+    ],
+    details: [
+      { label: "Forma", value: "Time Machine" },
+      { label: "Magnético", value: false },
+      { label: "Nivel de desafío", value: "Medio" },
+      { label: "Portátil", value: true },
+    ],
+  },
+  "KIN-LOG-002": {
+    primary: [
+      { label: "Tipo de juego", value: "Sudoku / rompecabezas lógico" },
+      { label: "Material", value: "Madera" },
+      { label: "Formato", value: "Cuadrícula 9×9" },
+      { label: "Forma", value: "Rectangular" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Incluye piezas numeradas", value: true },
+    ],
+    details: [
+      { label: "Nivel de desafío", value: "Medio a avanzado" },
+      { label: "Incluye libro de retos", value: true },
+      { label: "Incluye soluciones", value: true },
+      { label: "Incluye piezas de repuesto", value: true },
+      { label: "Portátil", value: true },
+    ],
+  },
+  "KIN-FOC-001": {
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica y deducción" },
+      { label: "Modalidad", value: "Descifrado de códigos" },
+      { label: "Número de desafíos", value: "600+" },
+      { label: "Jugadores", value: "1–2" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Nivel de desafío", value: "Progresivo" },
+      { label: "Modo de juego", value: "Individual o para dos jugadores" },
+      { label: "Uso recomendado", value: "Recreativo y viajes" },
+    ],
+  },
+  "KIN-LOG-003": {
+    primary: [{ label: "Modelo", value: "IQ Digits" }, { label: "Tipo de juego", value: "Rompecabezas lógico" }],
+    details: [{ label: "Portátil", value: true }],
+  },
+  "KIN-LOG-004": {
+    primary: [{ label: "Modelo", value: "IQ Fit" }, { label: "Tipo de juego", value: "Rompecabezas espacial" }],
+    details: [{ label: "Portátil", value: true }],
+  },
+  "KIN-LOG-005": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas geométrico" }, { label: "Material", value: "Madera" }],
+    details: [{ label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-LOG-006": {
+    primary: [{ label: "Tipo de juego", value: "Candado de lógica" }],
+    details: [{ label: "Portátil", value: true }, { label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-LOG-007": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas 3D" }, { label: "Material", value: "Madera" }],
+    details: [{ label: "Color / variante", value: "Negro y natural" }],
+  },
+  "KIN-LOG-008": {
+    primary: [{ label: "Tipo de juego", value: "Laberinto esférico" }],
+    details: [{ label: "Color / variante", value: "Transparente" }, { label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-LOG-009": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
+    details: [{ label: "Número de piezas", value: 24 }, { label: "Formato de venta", value: "Set" }, { label: "Portátil", value: true }],
+  },
+  "KIN-LOG-010": {
+    primary: [{ label: "Tipo de juego", value: "Cubo de lógica visual" }],
+    details: [{ label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-FID-002": {
+    primary: [{ label: "Tipo de producto", value: "Fidget cilíndrico" }],
+    details: [{ label: "Color / variante", value: "Negro con cuentas de colores" }],
+  },
+  "KIN-FID-003": {
+    primary: [{ label: "Tipo de producto", value: "Fidget de botones" }],
+    details: [{ label: "Color / variante", value: "Blanco con botones de colores" }],
+  },
+  "KIN-FID-004": {
+    primary: [{ label: "Tipo de producto", value: "Fidget manipulativo" }],
+    details: [{ label: "Formato", value: "2 en 1" }],
+  },
+  "KIN-FID-005": {
+    primary: [{ label: "Tipo de producto", value: "Fidget de aros giratorios" }],
+    details: [{ label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-LOG-011": {
+    primary: [{ label: "Tipo de juego", value: "Cubo calendario" }],
+    details: [{ label: "Formato", value: "7 × 7" }, { label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-LOG-012": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas espacial" }],
+    details: [{ label: "Formato", value: "Desafíos 2D y 3D" }, { label: "Formato de venta", value: "Unidad" }],
+  },
+  "KIN-LOG-013": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
+    details: [{ label: "Número de piezas", value: 6 }, { label: "Formato de venta", value: "Set" }],
+  },
+  "KIN-LOG-014": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
+    details: [{ label: "Número de piezas", value: 3 }, { label: "Formato de venta", value: "Set" }, { label: "Portátil", value: true }],
+  },
+  "KIN-LOG-015": {
+    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
+    details: [{ label: "Número de piezas", value: 3 }, { label: "Formato de venta", value: "Set" }, { label: "Portátil", value: true }],
+  },
+};
+
+export const products = catalogProducts.map((product) => ({
+  ...product,
+  ...productMetadata[product.id],
+  specifications: {
+    ...productSpecifications[product.id],
+    details: [
+      { label: "Edad recomendada", value: productMetadata[product.id]?.ageRecommendation },
+      ...(productSpecifications[product.id]?.details ?? []),
+    ],
+  },
+}));

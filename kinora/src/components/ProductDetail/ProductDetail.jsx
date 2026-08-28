@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
 import "./ProductDetail.css";
@@ -8,7 +9,30 @@ const StockLabel = ({ product }) => {
   if (stock === 1 || stock === 2) return <span className="product-detail__stock product-detail__stock--low">¡Últimas unidades!</span>;
   return <span className="product-detail__stock product-detail__stock--available">Disponible</span>;
 };
+const formatSpecificationValue = (value) => {
+  if (typeof value === "boolean") return value ? "Sí" : "No";
+  return value;
+};
+const SpecificationGroup = ({ title, items }) => {
+  const visibleItems = items?.filter(({ value }) => value !== "" && value !== null && value !== undefined) ?? [];
+  if (visibleItems.length === 0) return null;
+  return (
+    <section className="product-specifications__group">
+      <h3>{title}</h3>
+      <dl>
+        {visibleItems.map(({ label, value }) => (
+          <div className="product-specifications__row" key={label}>
+            <dt>{label}</dt>
+            <dd>{formatSpecificationValue(value)}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+};
 const ProductDetail = ({ product }) => {
+  const galleryImages = product?.images?.length ? product.images : product ? [product.image] : [];
+  const [selectedImage, setSelectedImage] = useState(galleryImages[0]);
   if (!product) {
     return (
       <>
@@ -30,24 +54,54 @@ const ProductDetail = ({ product }) => {
       <main className="product-detail">
         <a className="product-detail__back" href="/categorias">← Volver al catálogo</a>
         <div className="product-detail__layout">
-          <div className="product-detail__image-wrap">
-            <img src={product.image} alt={product.name} />
+          <div className="product-detail__gallery">
+            <div className={`product-detail__image-wrap${galleryImages.length > 1 ? " product-detail__image-wrap--gallery" : ""}`}>
+              <img src={selectedImage} alt={product.name} />
+            </div>
+            {galleryImages.length > 1 && (
+              <div className="product-detail__thumbnails" aria-label={`Galería de ${product.name}`}>
+                {galleryImages.map((image, index) => (
+                  <button
+                    className={`product-detail__thumbnail${selectedImage === image ? " product-detail__thumbnail--selected" : ""}`}
+                    type="button"
+                    onClick={() => setSelectedImage(image)}
+                    aria-label={`Ver imagen ${index + 1} de ${galleryImages.length}`}
+                    aria-pressed={selectedImage === image}
+                    key={image}
+                  >
+                    <img src={image} alt="" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="product-detail__content">
             <span className="product-detail__category">{product.category}</span>
             <h1>{product.name}</h1>
             <strong className="product-detail__price">{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
             <StockLabel product={product} />
-            <p className="product-detail__description">{product.description}</p>
             <dl className="product-detail__metadata">
               <div><dt>Habilidades</dt><dd>{product.skills.join(", ")}</dd></div>
             </dl>
-            <div className="product-detail__tags" aria-label="Características del producto">
+            <div className="product-detail__tags" aria-label="Etiquetas del producto">
               {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
             <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>
           </div>
         </div>
+        {product.specifications && (
+          <section className="product-specifications" aria-labelledby="product-specifications-title">
+            <h2 id="product-specifications-title">Características del producto</h2>
+            <div className="product-specifications__grid">
+              <SpecificationGroup title="Características principales" items={product.specifications.primary} />
+              <SpecificationGroup title="Detalles" items={product.specifications.details} />
+            </div>
+            <div className="product-specifications__description">
+              <h3>Descripción</h3>
+              <p>{product.description}</p>
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </>
