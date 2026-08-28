@@ -6,10 +6,10 @@ const iqDigitsImage = "/images/products/KIN-LOG-005-main.png";
 const iqFitImage = "/images/products/KIN-LOG-006-main.png";
 const flatWoodPuzzleImage = "/images/products/KIN-LOG-007-main.png";
 const puzzleLockImage = "/images/products/KIN-LOG-008-main.png.png";
-const woodCubeImage = "/images/products/KIN-LOG-007.png";
-const sphereMazeImage = "/images/products/KIN-LOG-008.png";
-const metalPuzzlesImage = "/images/products/KIN-LOG-009.png";
-const lineCubeImage = "/images/products/KIN-LOG-010.png";
+const woodCubeImage = "/images/products/KIN-LOG-009-main.png";
+const sphereMazeImage = "/images/products/KIN-LOG-010-main.png";
+const metalPuzzlesImage = "/images/products/KIN-LOG-011-main.png";
+const lineCubeImage = "/images/products/KIN-LOG-012-main.png";
 const cylinderFidgetImage = "/images/products/KIN-FID-002.png";
 const sensoryBallImage = "/images/products/KIN-FID-003.png";
 const twoInOneFidgetImage = "/images/products/KIN-FID-004.png";
@@ -207,14 +207,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-007",
     slug: "puzzle-3d-madera-negro-natural",
-    name: "Puzzle 3D de madera negro y natural",
-    shortDescription: "Piezas de madera que forman una estructura tridimensional.",
-    description: "Un puzzle de construcción para explorar volumen, orientación y encaje con piezas en acabado natural y negro.",
+    name: "Cubo Tetris de Madera 3D",
+    shortDescription: "Un puzzle 3D de construcción con 54 piezas geométricas de madera.",
+    description: "Cubo Tetris de Madera 3D es un rompecabezas de construcción formado por 54 piezas geométricas que tendrás que combinar hasta reconstruir el cubo completo.\n\nCada pieza ocupa el espacio de una manera distinta, así que resolverlo implica observar formas, probar orientaciones y anticipar cómo cada movimiento afecta el espacio disponible para las demás.\n\nSu combinación de madera natural y piezas negras le da un aspecto diferente que también permite dejarlo armado como objeto decorativo. Es un reto para poner en práctica el pensamiento lógico, la percepción espacial, la planificación y la resolución de problemas.",
     price: 249,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: woodCubeImage,
+    images: [
+      woodCubeImage,
+      "/images/products/KIN-LOG-009-02.png",
+      "/images/products/KIN-LOG-009-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -225,14 +230,18 @@ const catalogProducts = [
   {
     id: "KIN-LOG-008",
     slug: "laberinto-esferico-transparente",
-    name: "Laberinto esférico transparente",
-    shortDescription: "Una esfera transparente con recorridos y piezas móviles en su interior.",
-    description: "Un reto de observación y movimiento para girar la esfera, seguir caminos y explorar su mecanismo desde distintos ángulos.",
+    name: "Esfera Desenreda Nudos 360°",
+    shortDescription: "Un puzzle tipo laberinto para desenredar cuerdas dentro de una esfera transparente.",
+    description: "Esfera Desenreda Nudos 360° es un rompecabezas de lógica espacial en el que tendrás que liberar un conjunto de cuerdas de colores atrapadas dentro de una esfera transparente.\n\nPara resolverlo, mueve los controles de colores a través de las ranuras exteriores mientras giras y reorganizas el mecanismo interno. Cada movimiento modifica la posición de las cuerdas y puede acercarte a la solución… o crear un nuevo nudo que tendrás que analizar.\n\nEl desafío termina cuando todas las cuerdas quedan nuevamente rectas, separadas y sin cruzarse. Su esfera interior con giro libre de 360° añade una dimensión extra al reto y obliga a observar el problema desde diferentes posiciones.",
     price: 249,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: sphereMazeImage,
+    images: [
+      sphereMazeImage,
+      "/images/products/KIN-LOG-010-02.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas", "manos-ocupadas"],
@@ -244,13 +253,18 @@ const catalogProducts = [
     id: "KIN-LOG-009",
     slug: "set-de-puzzles-metalicos",
     name: "Set de 24 Rompecabezas Metálicos",
-    shortDescription: "Una colección de 24 retos de alambre con formas y mecanismos diferentes.",
-    description: "Una colección de 24 retos metálicos y de alambre con diferentes formas y mecanismos para separar y volver a ensamblar.",
+    shortDescription: "Un set de puzzles de metal y alambre entrelazados para separar piezas y volver a unirlas.",
+    description: "Set de 24 Rompecabezas Metálicos reúne 24 desafíos diferentes formados por piezas entrelazadas que tendrás que separar y volver a ensamblar.\n\nCada diseño plantea un problema distinto. Para encontrar la solución tendrás que observar cómo están conectadas las piezas, probar diferentes movimientos y descubrir la posición exacta que permite liberarlas sin utilizar fuerza.\n\nSus diferentes configuraciones ofrecen retos de dificultad variada en un formato pequeño y portátil, poniendo en práctica el pensamiento lógico, la concentración, la percepción espacial y la resolución de problemas.",
     price: 199,
     stock: 2,
     priceStatus: "temporary",
     currency: "MXN",
     image: metalPuzzlesImage,
+    images: [
+      metalPuzzlesImage,
+      "/images/products/KIN-LOG-011-02.png",
+      "/images/products/KIN-LOG-011-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas", "manos-ocupadas"],
@@ -261,14 +275,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-010",
     slug: "puzzle-cube-lineas-de-colores",
-    name: "Cubo de Línea de Colores",
-    shortDescription: "Un cubo giratorio para conectar recorridos de distintos colores.",
-    description: "Un puzzle visual que invita a girar sus piezas y construir líneas continuas alrededor de todas sus caras.",
+    name: "Cubo de Líneas 3×3",
+    shortDescription: "Un rompecabezas visual tipo puzzle: cubo 3x3 blanco con líneas de colores (cubo lineas).",
+    description: "El Cubo de Líneas 3×3 transforma el clásico mecanismo de giro en un desafío visual diferente. En lugar de ordenar cada cara por colores, tendrás que observar las líneas que recorren sus piezas y reorganizarlas hasta reconstruir correctamente sus patrones.\n\nCada giro modifica varios recorridos al mismo tiempo, por lo que tendrás que analizar cómo se conectan las líneas, reconocer patrones y planear tus siguientes movimientos para acercarte a la solución.\n\nSu formato compacto permite volver a mezclarlo y resolverlo tantas veces como quieras, convirtiéndolo en un reto de lógica y percepción visual basado en movimientos, conexiones y patrones de colores.",
     price: 299,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: lineCubeImage,
+    images: [
+      lineCubeImage,
+      "/images/products/KIN-LOG-012-02.png",
+      "/images/products/KIN-LOG-012-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -449,10 +468,10 @@ const productMetadata = {
   "KIN-LOG-004": { skills: ["pensamiento lógico", "concentración", "percepción espacial", "planificación", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-005": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "resolución de problemas", "pensamiento creativo"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-006": { skills: ["pensamiento lógico", "concentración", "resolución de problemas", "planificación", "paciencia"], ageRecommendation: "14 años en adelante" },
-  "KIN-LOG-007": { skills: ["razonamiento espacial", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
-  "KIN-LOG-008": { skills: ["coordinación", "concentración", "razonamiento espacial"], ageRecommendation: "6 años en adelante" },
-  "KIN-LOG-009": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
-  "KIN-LOG-010": { skills: ["lógica visual", "razonamiento espacial", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-007": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "resolución de problemas", "pensamiento creativo"], ageRecommendation: "6 años en adelante" },
+  "KIN-LOG-008": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "resolución de problemas", "concentración"], ageRecommendation: "9 años en adelante" },
+  "KIN-LOG-009": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "resolución de problemas", "planificación"] },
+  "KIN-LOG-010": { skills: ["pensamiento lógico", "concentración", "reconocimiento de patrones", "percepción visual", "resolución de problemas"] },
   "KIN-FID-002": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
   "KIN-FID-003": { skills: ["coordinación manual", "exploración táctil"], ageRecommendation: "5 años en adelante" },
   "KIN-FID-004": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
@@ -601,20 +620,74 @@ const productSpecifications = {
     ],
   },
   "KIN-LOG-007": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas 3D" }, { label: "Material", value: "Madera" }],
-    details: [{ label: "Color / variante", value: "Negro y natural" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico 3D" },
+      { label: "Modalidad", value: "Construcción y encaje" },
+      { label: "Material", value: "Madera" },
+      { label: "Número de piezas", value: "54" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Jugadores", value: "1" },
+    ],
+    details: [
+      { label: "Diseño", value: "Cubo con piezas geométricas estilo Tetris" },
+      { label: "Colores", value: "Natural y negro" },
+      { label: "Nivel de desafío", value: "Medio a avanzado" },
+      { label: "Uso adicional", value: "Decorativo" },
+      { label: "Mecánica", value: "Desarmar y reconstruir el cubo utilizando todas las piezas" },
+    ],
   },
   "KIN-LOG-008": {
-    primary: [{ label: "Tipo de juego", value: "Laberinto esférico" }],
-    details: [{ label: "Color / variante", value: "Transparente" }, { label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas lógico y espacial" },
+      { label: "Modalidad", value: "Desenredo de cuerdas" },
+      { label: "Diseño", value: "Esférico" },
+      { label: "Movimiento interno", value: "Giro libre de 360°" },
+      { label: "Jugadores", value: "1" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Objetivo", value: "Desenredar y separar las cuerdas internas" },
+      { label: "Mecánica", value: "Mover los controles de colores a través de las ranuras exteriores" },
+      { label: "Condición de solución", value: "Cuerdas rectas, separadas y sin cruces" },
+      { label: "Nivel de desafío", value: "Medio a avanzado" },
+      { label: "Uso recomendado", value: "Recreativo" },
+    ],
   },
   "KIN-LOG-009": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
-    details: [{ label: "Número de piezas", value: 24 }, { label: "Formato de venta", value: "Set" }, { label: "Portátil", value: true }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica" },
+      { label: "Modalidad", value: "Separación y ensamble" },
+      { label: "Cantidad", value: "24 rompecabezas diferentes" },
+      { label: "Material", value: "Metal" },
+      { label: "Formato de venta", value: "Set" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Diseños", value: "24 estilos diferentes" },
+      { label: "Mecánica", value: "Separar las piezas entrelazadas y volver a unirlas" },
+      { label: "Jugadores", value: "1" },
+      { label: "Nivel de desafío", value: "Variado" },
+      { label: "Formato", value: "Físico" },
+      { label: "Piezas pequeñas", value: true },
+    ],
   },
   "KIN-LOG-010": {
-    primary: [{ label: "Tipo de juego", value: "Cubo de lógica visual" }],
-    details: [{ label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica" },
+      { label: "Configuración", value: "3×3×3" },
+      { label: "Diseño", value: "Cubo blanco con líneas de colores" },
+      { label: "Material", value: "Plástico" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Tipo", value: "Cubo de líneas" },
+      { label: "Mecánica", value: "Giro de caras y reorganización de patrones" },
+      { label: "Jugadores", value: "1" },
+      { label: "Objetivo", value: "Reorganizar las líneas de colores" },
+      { label: "Formato", value: "Físico" },
+      { label: "Nivel de desafío", value: "Medio" },
+    ],
   },
   "KIN-FID-002": {
     primary: [{ label: "Tipo de producto", value: "Fidget cilíndrico" }],
