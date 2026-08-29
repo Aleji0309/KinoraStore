@@ -14,11 +14,11 @@ const cylinderFidgetImage = "/images/products/KIN-FID-002.png";
 const sensoryBallImage = "/images/products/KIN-LOG-014-main.png";
 const twoInOneFidgetImage = "/images/products/KIN-LOG-015-main.png";
 const spinningRingsFidgetImage = "/images/products/KIN-LOG-016-main.png";
-const calendarCubeImage = "/images/products/KIN-LOG-011.png";
-const ballPyramidImage = "/images/products/KIN-LOG-012.png";
-const sixMetalPuzzlesImage = "/images/products/KIN-LOG-013.png";
-const metalPuzzleTrioImage = "/images/products/KIN-LOG-014.png";
-const metalChallengeTrioImage = "/images/products/KIN-LOG-015.png";
+const calendarCubeImage = "/images/products/KIN-LOG-017-main.png";
+const ballPyramidImage = "/images/products/KIN-LOG-018-main.png";
+const sixMetalPuzzlesImage = "/images/products/KIN-LOG-019-main.png";
+const metalPuzzleTrioImage = "/images/products/KIN-LOG-020-main.png";
+const metalChallengeTrioImage = "/images/products/KIN-LOG-021-main.png";
 const catalogProducts = [
   {
     id: "KIN-FID-001",
@@ -386,14 +386,19 @@ const catalogProducts = [
   {
     id: "KIN-LOG-011",
     slug: "cubo-calendario-7x7",
-    name: "Cubo Calendario 7x7",
-    shortDescription: "Un cubo configurable con fechas, días de la semana y meses.",
-    description: "Rompecabezas tipo cubo que permite configurar fechas, días de la semana y meses. Un reto de lógica que puede cambiar todos los días.",
+    name: "Cubo Calendario 7×7×7",
+    shortDescription: "Un cubo lógico o cubo 7x7 tipo puzzle, con configuración 7x7x7, números (numeros), fechas y calendario.",
+    description: "Cubo Calendario 7×7×7 es un rompecabezas de múltiples capas que lleva el clásico mecanismo de giro a un nivel más complejo.\n\nSus caras están divididas en una cuadrícula 7×7 y utilizan números y referencias de calendario en lugar de los colores tradicionales. Cada movimiento modifica numerosas piezas al mismo tiempo, por lo que tendrás que observar patrones, planear secuencias de movimientos y mantener el control de distintas secciones mientras reorganizas el cubo.\n\nEs un desafío pensado para quienes disfrutan los rompecabezas de lógica con mayor dificultad y quieren enfrentarse a una configuración más exigente.",
     price: 499,
     stock: 2,
     priceStatus: "temporary",
     currency: "MXN",
     image: calendarCubeImage,
+    images: [
+      calendarCubeImage,
+      "/images/products/KIN-LOG-017-02.png",
+      "/images/products/KIN-LOG-017-03.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -404,14 +409,15 @@ const catalogProducts = [
   {
     id: "KIN-LOG-012",
     slug: "piramide-de-bolas-3d",
-    name: "Pirámide de Bolas 3D",
-    shortDescription: "Piezas de bolas de colores para resolver desafíos en 2D y 3D.",
-    description: "Rompecabezas de lógica con piezas de bolas de colores y múltiples desafíos que pueden resolverse en configuraciones 2D y 3D.",
+    name: "IQ Puzzle Pirámide 3D — 200 Desafíos",
+    shortDescription: "Un puzzle 3D y rompecabezas 3D de lógica con 200 desafíos (200 desafios); también puede buscarse como piramide.",
+    description: "IQ Puzzle Pirámide 3D — 200 Desafíos propone una colección de retos de lógica en los que tendrás que combinar y colocar las piezas para construir diferentes configuraciones y encontrar la solución de cada desafío.\n\nIncluye 200 desafíos para avanzar a tu propio ritmo, experimentando con distintas posiciones y observando cómo cada pieza ocupa el espacio disponible. Su formato tridimensional añade un reto adicional al tener que pensar no solo en la posición, sino también en la orientación de las piezas.\n\nSu diseño compacto y funda de viaje permiten guardar las piezas y llevar el rompecabezas fácilmente, convirtiéndolo en una opción práctica para resolver pequeños desafíos en distintos lugares.",
     price: 149,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: ballPyramidImage,
+    images: [ballPyramidImage],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas"],
@@ -422,14 +428,18 @@ const catalogProducts = [
   {
     id: "KIN-LOG-013",
     slug: "set-de-6-rompecabezas-metalicos",
-    name: "Set de 6 Rompecabezas Metálicos",
-    shortDescription: "Seis retos metálicos con mecanismos distintos para descubrir.",
-    description: "Colección de seis rompecabezas metálicos con diferentes mecanismos para separar, desbloquear y volver a ensamblar las piezas.",
+    name: "Set de 6 Rompecabezas Metálicos de Ingenio",
+    shortDescription: "Seis puzzles de metal y lógica (logica): 6 rompecabezas metálicos, también identificados como 6 rompecabezas metalicos, para desmontaje y ensamble.",
+    description: "Set de 6 Rompecabezas Metálicos de Ingenio reúne seis desafíos diferentes basados en piezas entrelazadas y mecanismos de enclavamiento que tendrás que observar, desmontar y volver a ensamblar.\n\nCada rompecabezas presenta una estructura diferente, por lo que encontrar la solución requiere analizar cómo se relacionan sus piezas, probar movimientos y descubrir la secuencia correcta para liberar cada mecanismo.\n\nCon un nivel de dificultad alto, el set ofrece distintos retos en un formato compacto para poner en práctica el pensamiento lógico, la percepción espacial, la planificación y la resolución de problemas.",
     price: 299,
     stock: 6,
     priceStatus: "temporary",
     currency: "MXN",
     image: sixMetalPuzzlesImage,
+    images: [
+      sixMetalPuzzlesImage,
+      "/images/products/KIN-LOG-019-02.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas", "manos-ocupadas"],
@@ -440,14 +450,18 @@ const catalogProducts = [
   {
     id: "KIN-LOG-014",
     slug: "trio-de-rompecabezas-metalicos",
-    name: "Trío de Rompecabezas Metálicos",
-    shortDescription: "Tres pequeños mecanismos metálicos para observar y resolver.",
-    description: "Set de tres pequeños rompecabezas metálicos con mecanismos diferentes que ponen a prueba la observación, la paciencia y la resolución de problemas.",
+    name: "Set de 3 Rompecabezas Metálicos — Dificultad Avanzada",
+    shortDescription: "Tres puzzles y rompecabezas avanzados de metal y lógica (logica), también identificados como 3 rompecabezas metálicos / 3 rompecabezas metalicos, con candado de corazón (corazon), desbloqueo y separación (separacion).",
+    description: "Set de 3 Rompecabezas Metálicos — Dificultad Avanzada reúne tres desafíos de ingenio con diferentes mecanismos que tendrás que analizar para descubrir cómo separar sus piezas.\n\nCada rompecabezas plantea un problema distinto: observa su estructura, prueba movimientos y busca la secuencia que permite desbloquear el mecanismo. Una vez separado, el siguiente reto es descubrir cómo volver a ensamblarlo.\n\nSu formato compacto reúne tres desafíos de mayor dificultad para poner en práctica el pensamiento lógico, la percepción espacial, la planificación y la resolución de problemas.",
     price: 199,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: metalPuzzleTrioImage,
+    images: [
+      metalPuzzleTrioImage,
+      "/images/products/KIN-LOG-020-02.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas", "manos-ocupadas"],
@@ -458,14 +472,18 @@ const catalogProducts = [
   {
     id: "KIN-LOG-015",
     slug: "trio-de-retos-metalicos",
-    name: "Trío de Retos Metálicos",
-    shortDescription: "Tres retos clásicos con mecanismos de separación y desbloqueo.",
-    description: "Tres rompecabezas metálicos de estilo clásico con diferentes mecanismos de desbloqueo y separación.",
+    name: "Set de 3 Rompecabezas Metálicos Vintage",
+    shortDescription: "Tres puzzles de lógica (logica) y metal: rompecabezas vintage y metálicos (metalicos) con Key Lock o candado, S Lock y Bicycle o bicicleta, para desbloqueo y separación (separacion).",
+    description: "Set de 3 Rompecabezas Metálicos Vintage reúne tres desafíos de ingenio con diseños distintos: Key Lock, S Lock y Bicycle.\n\nCada rompecabezas presenta un mecanismo diferente de piezas entrelazadas. El reto consiste en observar su estructura, probar distintos movimientos y descubrir la secuencia que permite separar las piezas para después encontrar la forma de volver a ensamblarlas.\n\nSu acabado metálico en tono bronce les da un estilo vintage, mientras que su formato compacto permite guardarlos y transportarlos fácilmente.",
     price: 149,
     stock: 2,
     priceStatus: "temporary",
     currency: "MXN",
     image: metalChallengeTrioImage,
+    images: [
+      metalChallengeTrioImage,
+      "/images/products/KIN-LOG-021-02.png",
+    ],
     category: "Juegos de lógica y pensamiento",
     categoryRefs: ["juegos-de-logica-y-pensamiento"],
     needs: ["enfoque-y-tareas", "manos-ocupadas"],
@@ -492,11 +510,11 @@ const productMetadata = {
   "KIN-FID-003": { skills: ["concentración", "coordinación", "reconocimiento de patrones", "pensamiento lógico", "resolución de problemas"] },
   "KIN-FID-004": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "resolución de problemas"] },
   "KIN-FID-005": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "percepción espacial"] },
-  "KIN-LOG-011": { skills: ["lógica", "planificación", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
-  "KIN-LOG-012": { skills: ["razonamiento espacial", "lógica", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
-  "KIN-LOG-013": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
-  "KIN-LOG-014": { skills: ["observación", "lógica", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
-  "KIN-LOG-015": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
+  "KIN-LOG-011": { skills: ["pensamiento lógico", "concentración", "planificación", "reconocimiento de patrones", "resolución de problemas"] },
+  "KIN-LOG-012": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "planificación", "resolución de problemas"] },
+  "KIN-LOG-013": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "concentración", "resolución de problemas"] },
+  "KIN-LOG-014": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "concentración", "resolución de problemas"] },
+  "KIN-LOG-015": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "planificación", "resolución de problemas"] },
 };
 
 const productSpecifications = {
@@ -777,24 +795,94 @@ const productSpecifications = {
     ],
   },
   "KIN-LOG-011": {
-    primary: [{ label: "Tipo de juego", value: "Cubo calendario" }],
-    details: [{ label: "Formato", value: "7 × 7" }, { label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica" },
+      { label: "Modalidad", value: "Cubo giratorio" },
+      { label: "Configuración", value: "7×7×7" },
+      { label: "Material", value: "Plástico" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Diseño", value: "Cubo de múltiples capas con números y referencias de calendario" },
+      { label: "Mecánica", value: "Giro de caras y reorganización de piezas" },
+      { label: "Jugadores", value: "1" },
+      { label: "Nivel de desafío", value: "Avanzado" },
+      { label: "Uso", value: "Recreativo" },
+      { label: "Formato", value: "Físico" },
+    ],
   },
   "KIN-LOG-012": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas espacial" }],
-    details: [{ label: "Formato", value: "Desafíos 2D y 3D" }, { label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica 3D" },
+      { label: "Modalidad", value: "Construcción y encaje" },
+      { label: "Número de desafíos", value: "200" },
+      { label: "Material", value: "ABS" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Diseño", value: "Pirámide 3D" },
+      { label: "Mecánica", value: "Colocar y combinar piezas para resolver cada desafío" },
+      { label: "Libro de desafíos", value: "Incluido" },
+      { label: "Funda de viaje", value: "Incluida" },
+      { label: "Jugadores", value: "1" },
+      { label: "Nivel", value: "Progresivo" },
+    ],
   },
   "KIN-LOG-013": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
-    details: [{ label: "Número de piezas", value: 6 }, { label: "Formato de venta", value: "Set" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de ingenio" },
+      { label: "Modalidad", value: "Desmontaje y ensamble" },
+      { label: "Cantidad", value: "6 rompecabezas" },
+      { label: "Material", value: "Metal" },
+      { label: "Formato de venta", value: "Set" },
+      { label: "Jugadores", value: "1" },
+    ],
+    details: [
+      { label: "Edad", value: "14 años en adelante" },
+      { label: "Diseños", value: "6 mecanismos diferentes" },
+      { label: "Mecánica", value: "Piezas entrelazadas y mecanismos de enclavamiento" },
+      { label: "Nivel de desafío", value: "Alto" },
+      { label: "Portátil", value: true },
+      { label: "Uso", value: "Recreativo" },
+    ],
   },
   "KIN-LOG-014": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
-    details: [{ label: "Número de piezas", value: 3 }, { label: "Formato de venta", value: "Set" }, { label: "Portátil", value: true }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de ingenio" },
+      { label: "Modalidad", value: "Desbloqueo y separación" },
+      { label: "Cantidad", value: "3 rompecabezas" },
+      { label: "Material", value: "Metal" },
+      { label: "Formato de venta", value: "Set" },
+      { label: "Jugadores", value: "1" },
+    ],
+    details: [
+      { label: "Diseños", value: "3 mecanismos diferentes" },
+      { label: "Mecánica", value: "Analizar y separar las piezas entrelazadas" },
+      { label: "Nivel de desafío", value: "Avanzado" },
+      { label: "Portátil", value: true },
+      { label: "Uso", value: "Recreativo" },
+      { label: "Contenido", value: "3 rompecabezas" },
+    ],
   },
   "KIN-LOG-015": {
-    primary: [{ label: "Tipo de juego", value: "Rompecabezas de ingenio" }, { label: "Material", value: "Metal" }],
-    details: [{ label: "Número de piezas", value: 3 }, { label: "Formato de venta", value: "Set" }, { label: "Portátil", value: true }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de ingenio" },
+      { label: "Modalidad", value: "Desbloqueo y separación" },
+      { label: "Cantidad", value: "3 rompecabezas" },
+      { label: "Material", value: "Aleación metálica" },
+      { label: "Formato de venta", value: "Set" },
+      { label: "Jugadores", value: "1" },
+    ],
+    details: [
+      { label: "Diseños", value: "Key Lock, S Lock y Bicycle" },
+      { label: "Mecánica", value: "Piezas entrelazadas para separar y volver a ensamblar" },
+      { label: "Acabado", value: "Bronce estilo vintage" },
+      { label: "Portátil", value: true },
+      { label: "Tamaño", value: "Compacto" },
+      { label: "Uso", value: "Recreativo" },
+    ],
   },
 };
 
