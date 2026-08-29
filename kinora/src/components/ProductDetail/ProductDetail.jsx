@@ -100,6 +100,11 @@ const ProductDetail = ({ product }) => {
               <h3>Descripción</h3>
               <p>{product.description}</p>
             </div>
+            {product.warning && (
+              <aside className="product-specifications__warning" aria-label="Advertencia de seguridad">
+                <p>{product.warning}</p>
+              </aside>
+            )}
           </section>
         )}
       </main>

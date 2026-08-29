@@ -329,6 +329,20 @@
   white-space: pre-line;
 }
 
+.product-specifications__warning {
+  margin-top: 1rem;
+  border-left: 4px solid var(--color-sun);
+  border-radius: 0.5rem;
+  background-color: var(--color-paper);
+  padding: 0.85rem 1rem;
+}
+
+.product-specifications__warning p {
+  margin: 0;
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
 .product-not-found {
   min-height: 30rem;
   padding-block: clamp(4rem, 10vw, 7rem);

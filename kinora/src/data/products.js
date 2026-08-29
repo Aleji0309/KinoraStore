@@ -11,9 +11,9 @@ const sphereMazeImage = "/images/products/KIN-LOG-010-main.png";
 const metalPuzzlesImage = "/images/products/KIN-LOG-011-main.png";
 const lineCubeImage = "/images/products/KIN-LOG-012-main.png";
 const cylinderFidgetImage = "/images/products/KIN-FID-002.png";
-const sensoryBallImage = "/images/products/KIN-FID-003.png";
-const twoInOneFidgetImage = "/images/products/KIN-FID-004.png";
-const spinningRingsFidgetImage = "/images/products/KIN-FID-005.png";
+const sensoryBallImage = "/images/products/KIN-LOG-014-main.png";
+const twoInOneFidgetImage = "/images/products/KIN-LOG-015-main.png";
+const spinningRingsFidgetImage = "/images/products/KIN-LOG-016-main.png";
 const calendarCubeImage = "/images/products/KIN-LOG-011.png";
 const ballPyramidImage = "/images/products/KIN-LOG-012.png";
 const sixMetalPuzzlesImage = "/images/products/KIN-LOG-013.png";
@@ -298,9 +298,9 @@ const catalogProducts = [
   {
     id: "KIN-FID-002",
     slug: "fidget-cilindrico-negro",
-    name: "Fidget cilíndrico negro con cuentas de colores",
-    shortDescription: "Un cilindro manipulativo con cuentas móviles y distintas rutas.",
-    description: "Una opción sensorial para mover cuentas, girar secciones y mantener las manos activas con diferentes gestos.",
+    name: "Cubo Giratorio de Bolitas",
+    shortDescription: "Un puzzle de lógica y rotación con bolitas o bolas de colores y patrones móviles.",
+    description: "Cubo Giratorio de Bolitas es un rompecabezas compacto que combina movimientos de giro con el desplazamiento de pequeñas bolitas de colores.\n\nPara resolverlo tendrás que rotar sus secciones, mover las piezas entre diferentes posiciones y observar cómo cada movimiento cambia la distribución del conjunto. Su mecánica sencilla invita a probar distintas combinaciones hasta encontrar el orden que buscas.\n\nSu tamaño compacto permite manipularlo fácilmente con las manos y convertirlo en un reto corto para practicar concentración, coordinación y reconocimiento de patrones.",
     price: 199,
     stock: 0,
     priceStatus: "temporary",
@@ -316,14 +316,20 @@ const catalogProducts = [
   {
     id: "KIN-FID-003",
     slug: "bola-sensorial-con-botones",
-    name: "Bola sensorial blanca con botones de colores",
-    shortDescription: "Una esfera ligera con botones de colores para presionar y explorar.",
-    description: "Una pieza sensorial de formato redondo que combina presión, movimiento y contrastes de color en una experiencia manipulativa.",
+    name: "Bola Arcoíris de 12 Agujeros",
+    shortDescription: "Un rompecabezas de lógica tipo puzzle: una bola de colores o bola arcoiris con bolitas móviles.",
+    description: "Bola Arcoíris de 12 Agujeros es un rompecabezas de manipulación formado por una esfera con pequeñas bolitas de colores que pueden desplazarse entre sus diferentes espacios.\n\nEl reto consiste en mover las bolitas, observar su posición y reorganizarlas mediante diferentes combinaciones de movimientos. Su mecanismo permite comenzar de nuevo fácilmente y probar distintas formas de ordenar los colores.\n\nSu formato compacto permite llevarla y jugar en sesiones cortas, poniendo en práctica la concentración, la coordinación y el reconocimiento de patrones.",
+    warning: "Advertencia: No calentar, introducir en el microondas, congelar ni perforar. Los niños deben utilizar el producto bajo supervisión de un adulto.",
     price: 199,
     stock: 6,
     priceStatus: "temporary",
     currency: "MXN",
     image: sensoryBallImage,
+    images: [
+      sensoryBallImage,
+      "/images/products/KIN-LOG-014-02.png",
+      "/images/products/KIN-LOG-014-03.png",
+    ],
     category: "Juguetes sensoriales",
     categoryRefs: ["juguetes-sensoriales", "fidget"],
     needs: ["manos-ocupadas"],
@@ -334,14 +340,19 @@ const catalogProducts = [
   {
     id: "KIN-FID-004",
     slug: "fidget-2-en-1",
-    name: "Fidget 2 en 1",
-    shortDescription: "Dos pistas de bolitas deslizables en un solo fidget manipulable.",
-    description: "Fidget manipulable 2 en 1 con pistas de bolitas deslizables para recorrer una y otra vez con movimientos sencillos.",
+    name: "Fidget Giratorio 2 en 1",
+    shortDescription: "Un fidget tipo puzzle y rompecabezas de rotación con bolitas de colores.",
+    description: "Fidget Giratorio 2 en 1 combina un mecanismo de rotación con pequeñas piezas de colores que pueden desplazarse entre diferentes posiciones.\n\nEl reto consiste en girar sus secciones y mover las bolitas para reorganizar los colores. Los movimientos pueden combinarse de distintas maneras, por lo que tendrás que observar la posición de cada pieza y descubrir qué movimientos te acercan al orden que buscas.\n\nSu formato compacto y superficie texturizada facilitan la manipulación mientras pruebas diferentes combinaciones, convirtiéndolo en un pequeño desafío de lógica, coordinación y reconocimiento de patrones.",
     price: 199,
     stock: 1,
     priceStatus: "temporary",
     currency: "MXN",
     image: twoInOneFidgetImage,
+    images: [
+      twoInOneFidgetImage,
+      "/images/products/KIN-LOG-015-02.png",
+      "/images/products/KIN-LOG-015-03.png",
+    ],
     category: "Juguetes sensoriales",
     categoryRefs: ["juguetes-sensoriales", "fidget"],
     needs: ["manos-ocupadas"],
@@ -352,14 +363,19 @@ const catalogProducts = [
   {
     id: "KIN-FID-005",
     slug: "fidget-de-aros-giratorios",
-    name: "Fidget de Aros Giratorios",
-    shortDescription: "Tres zonas de cuentas giratorias en un formato compacto.",
-    description: "Fidget compacto con tres zonas de cuentas giratorias que ofrece diferentes movimientos repetitivos y una experiencia táctil entretenida.",
+    name: "Cubo Giratorio Magic Bean de 6 Lados",
+    shortDescription: "Un rompecabezas de lógica tipo puzzle de rotación con bolitas de colores y frijoles mágicos (frijoles magicos).",
+    description: "Cubo Giratorio Magic Bean de 6 Lados combina movimientos de rotación con pequeñas bolitas de colores que pueden desplazarse entre distintas posiciones.\n\nSus diferentes secciones pueden girarse sobre varios ejes, cambiando la ubicación de las bolitas con cada movimiento. El reto consiste en observar su distribución, experimentar con los giros y encontrar las combinaciones necesarias para reorganizarlas.\n\nAdemás del rompecabezas, su diseño permite hacerlo girar sobre su eje, ofreciendo una segunda forma de interactuar con sus piezas y movimientos.",
     price: 199,
     stock: 4,
     priceStatus: "temporary",
     currency: "MXN",
     image: spinningRingsFidgetImage,
+    images: [
+      spinningRingsFidgetImage,
+      "/images/products/KIN-LOG-016-02.png",
+      "/images/products/KIN-LOG-016-03.png",
+    ],
     category: "Juguetes sensoriales",
     categoryRefs: ["juguetes-sensoriales", "fidget"],
     needs: ["manos-ocupadas"],
@@ -472,10 +488,10 @@ const productMetadata = {
   "KIN-LOG-008": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "resolución de problemas", "concentración"], ageRecommendation: "9 años en adelante" },
   "KIN-LOG-009": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "resolución de problemas", "planificación"] },
   "KIN-LOG-010": { skills: ["pensamiento lógico", "concentración", "reconocimiento de patrones", "percepción visual", "resolución de problemas"] },
-  "KIN-FID-002": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
-  "KIN-FID-003": { skills: ["coordinación manual", "exploración táctil"], ageRecommendation: "5 años en adelante" },
-  "KIN-FID-004": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
-  "KIN-FID-005": { skills: ["coordinación manual", "concentración"], ageRecommendation: "6 años en adelante" },
+  "KIN-FID-002": { skills: ["concentración", "coordinación", "reconocimiento de patrones", "pensamiento lógico", "resolución de problemas"] },
+  "KIN-FID-003": { skills: ["concentración", "coordinación", "reconocimiento de patrones", "pensamiento lógico", "resolución de problemas"] },
+  "KIN-FID-004": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "resolución de problemas"] },
+  "KIN-FID-005": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "percepción espacial"] },
   "KIN-LOG-011": { skills: ["lógica", "planificación", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
   "KIN-LOG-012": { skills: ["razonamiento espacial", "lógica", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-013": { skills: ["lógica", "concentración", "resolución de problemas"], ageRecommendation: "8 años en adelante" },
@@ -690,20 +706,75 @@ const productSpecifications = {
     ],
   },
   "KIN-FID-002": {
-    primary: [{ label: "Tipo de producto", value: "Fidget cilíndrico" }],
-    details: [{ label: "Color / variante", value: "Negro con cuentas de colores" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica y manipulación" },
+      { label: "Modalidad", value: "Rotación y desplazamiento de bolitas" },
+      { label: "Material", value: "ABS" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+      { label: "Jugadores", value: "1" },
+    ],
+    details: [
+      { label: "Mecánica", value: "Girar el cuerpo y mover las bolitas entre diferentes posiciones" },
+      { label: "Movimiento", value: "Rotación en dos direcciones" },
+      { label: "Diseño", value: "Compacto para uso manual" },
+      { label: "Nivel de desafío", value: "Bajo a medio" },
+      { label: "Uso recomendado", value: "Recreativo" },
+    ],
   },
   "KIN-FID-003": {
-    primary: [{ label: "Tipo de producto", value: "Fidget de botones" }],
-    details: [{ label: "Color / variante", value: "Blanco con botones de colores" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de manipulación" },
+      { label: "Modalidad", value: "Desplazamiento de bolitas" },
+      { label: "Material", value: "Plástico" },
+      { label: "Diseño", value: "Esférico" },
+      { label: "Número de agujeros", value: "12" },
+      { label: "Formato de venta", value: "Unidad" },
+    ],
+    details: [
+      { label: "Edad", value: "6 años en adelante" },
+      { label: "Mecánica", value: "Presionar y desplazar las bolitas entre los diferentes espacios" },
+      { label: "Jugadores", value: "1" },
+      { label: "Portátil", value: true },
+      { label: "Uso", value: "Recreativo" },
+      { label: "Nivel de desafío", value: "Bajo a medio" },
+    ],
   },
   "KIN-FID-004": {
-    primary: [{ label: "Tipo de producto", value: "Fidget manipulativo" }],
-    details: [{ label: "Formato", value: "2 en 1" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica y manipulación" },
+      { label: "Modalidad", value: "Rotación y desplazamiento de bolitas" },
+      { label: "Material", value: "Plástico" },
+      { label: "Color base", value: "Blanco" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Jugadores", value: "1" },
+    ],
+    details: [
+      { label: "Mecánica", value: "Girar y desplazar las bolitas entre diferentes posiciones" },
+      { label: "Objetivo", value: "Reorganizar las bolitas por colores" },
+      { label: "Diseño", value: "Superficie texturizada para facilitar el agarre" },
+      { label: "Portátil", value: true },
+      { label: "Nivel de desafío", value: "Bajo a medio" },
+      { label: "Uso", value: "Recreativo" },
+    ],
   },
   "KIN-FID-005": {
-    primary: [{ label: "Tipo de producto", value: "Fidget de aros giratorios" }],
-    details: [{ label: "Formato de venta", value: "Unidad" }],
+    primary: [
+      { label: "Tipo de juego", value: "Rompecabezas de lógica y manipulación" },
+      { label: "Modalidad", value: "Rotación y desplazamiento de bolitas" },
+      { label: "Diseño", value: "6 lados con secciones giratorias" },
+      { label: "Mecanismo", value: "Rotación en múltiples ejes" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Piezas móviles", value: "Bolitas de colores" },
+      { label: "Movimiento", value: "Giro y cambio de posición" },
+      { label: "Jugadores", value: "1" },
+      { label: "Nivel de desafío", value: "Bajo a medio" },
+      { label: "Uso", value: "Recreativo" },
+      { label: "Modo adicional", value: "Giro sobre su eje" },
+    ],
   },
   "KIN-LOG-011": {
     primary: [{ label: "Tipo de juego", value: "Cubo calendario" }],
