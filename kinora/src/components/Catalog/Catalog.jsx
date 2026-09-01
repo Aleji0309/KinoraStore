@@ -1,12 +1,13 @@
 import Footer from "../Home/Footer";
 import CatalogProductCard from "./CatalogProductCard";
 import { products } from "../../data/products";
+import { marketConfig } from "../../config/markets";
 import "./Catalog.css";
 const Catalog = ({ query = "" }) => {
-  const normalizedQuery = query.trim().toLocaleLowerCase("es-MX");
+  const normalizedQuery = query.trim().toLocaleLowerCase(marketConfig.locale);
   const matchingProducts = normalizedQuery
     ? products.filter((product) => [product.name, product.category, product.shortDescription, product.description]
-      .some((value) => value?.toLocaleLowerCase("es-MX").includes(normalizedQuery)))
+      .some((value) => value?.toLocaleLowerCase(marketConfig.locale).includes(normalizedQuery)))
     : products;
   return (
     <>

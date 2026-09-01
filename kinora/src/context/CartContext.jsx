@@ -13,6 +13,7 @@ export const CartProvider = ({ children }) => {
           name: product.name,
           price: product.price,
           currency: product.currency,
+          locale: product.locale,
           image: product.image,
           quantity: 1,
           stock: product.stock,

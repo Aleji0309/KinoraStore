@@ -1,16 +1,47 @@
-# React + Vite
+# Kinora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda de Kinora construida con React y Vite. México y Costa Rica comparten el mismo catálogo, repositorio, rama y código; la configuración comercial activa se selecciona durante el build.
 
-Currently, two official plugins are available:
+## Mercados
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+La aplicación lee `import.meta.env.VITE_MARKET`:
 
-## React Compiler
+- `MX`: México (`es-MX`, `MXN`).
+- `CR`: Costa Rica (`es-CR`, `CRC`).
+- Variable ausente, vacía o no reconocida: se utiliza `MX`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El catálogo base conserva IDs, slugs, nombres, descripciones, imágenes y demás metadata común. Precios, stock, estado comercial, entrega y contactos se administran por mercado en `src/config/markets.js`.
 
-## Expanding the ESLint configuration
+Todos los productos compartidos están habilitados en ambos mercados. Los valores comerciales temporales se mantienen únicamente en la configuración del mercado correspondiente.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Desarrollo local
+
+El proyecto usa npm (`package-lock.json`).
+
+```sh
+VITE_MARKET=MX npm run dev
+VITE_MARKET=CR npm run dev
+```
+
+Para crear builds locales:
+
+```sh
+VITE_MARKET=MX npm run build
+VITE_MARKET=CR npm run build
+```
+
+Puede copiarse `.env.example` a un archivo `.env.local` no versionado para evitar indicar la variable en cada comando. No se deben agregar archivos `.env` reales al repositorio.
+
+## Netlify
+
+Crear dos Sites conectados al mismo repositorio y a la misma rama `main`. Ambos utilizan:
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+Configurar `VITE_MARKET` de forma independiente en **Site configuration → Environment variables**:
+
+- Site México: `VITE_MARKET=MX`
+- Site Costa Rica: `VITE_MARKET=CR`
+
+`netlify.toml` no fija ningún mercado y mantiene el fallback SPA hacia `index.html`.

@@ -20,7 +20,7 @@ const CatalogProductCard = ({ product }) => {
         <p className="catalog-product-card__skills"><strong>Habilidades:</strong> {product.skills.join(", ")}</p>
         {product.ageRecommendation && <p className="catalog-product-card__age"><strong>Edad:</strong> {product.ageRecommendation}</p>}
         <div className="catalog-product-card__footer">
-          <strong>{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
+          <strong>{formatCurrency(product.price, product.currency, product.locale)} <span>{product.currency}</span></strong>
           <a className="catalog-product-card__action" href={`/productos/${product.slug}`}>Ver producto</a>
         </div>
       </div>

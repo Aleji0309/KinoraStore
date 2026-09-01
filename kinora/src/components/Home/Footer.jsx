@@ -1,5 +1,8 @@
 import Logo from "../common/Logo/Logo";
+import { marketConfig } from "../../config/markets";
 const Footer = () => {
+  const { contact } = marketConfig;
+  const hasContact = contact.instagramUrl || contact.whatsapp || contact.email;
   return (
     <footer className="home-footer" id="contacto">
       <div className="home-footer__main">
@@ -13,12 +16,12 @@ const Footer = () => {
           <a href="/categorias">Categorías</a>
           <a href="/nosotros">Nosotros</a>
         </nav>
-        <div className="home-footer__contact">
+        {hasContact && <div className="home-footer__contact">
           <h2>Conecta</h2>
-          <a href="https://www.instagram.com/kinoraneurostore/" target="_blank" rel="noopener noreferrer">@kinoraneurostore</a>
-          <a href="https://wa.me/525652069271" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          <a href="mailto:contacto@kinora.com">Contacto</a>
-        </div>
+          {contact.instagramUrl && <a href={contact.instagramUrl} target="_blank" rel="noopener noreferrer">{contact.instagramHandle}</a>}
+          {contact.whatsapp && <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>}
+          {contact.email && <a href={`mailto:${contact.email}`}>Contacto</a>}
+        </div>}
       </div>
       <div className="home-footer__bottom">
         <p>© 2026 Kinora. Todos los derechos reservados.</p>

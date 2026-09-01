@@ -1,5 +1,6 @@
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { marketConfig } from "../../config/markets";
 import "./ProductDetail.css";
 const StockLabel = ({ product }) => {
   if (product.stockStatus === "order_only") return <span className="product-detail__stock product-detail__stock--order">Disponible por encargo</span>;
@@ -24,7 +25,9 @@ const ProductDetail = ({ product }) => {
   }
   const orderNote = product.stockStatus === "order_only" ? " Vi que está disponible por encargo." : "";
   const inquiryMessage = `Hola, vi ${product.name} en Kinora y me interesa.${orderNote} ¿Me puedes dar más información?`;
-  const inquiryUrl = `https://wa.me/525652069271?text=${encodeURIComponent(inquiryMessage)}`;
+  const inquiryUrl = marketConfig.contact.whatsapp
+    ? `https://wa.me/${marketConfig.contact.whatsapp}?text=${encodeURIComponent(inquiryMessage)}`
+    : null;
   return (
     <>
       <main className="product-detail">
@@ -36,7 +39,7 @@ const ProductDetail = ({ product }) => {
           <div className="product-detail__content">
             <span className="product-detail__category">{product.category}</span>
             <h1>{product.name}</h1>
-            <strong className="product-detail__price">{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
+            <strong className="product-detail__price">{formatCurrency(product.price, product.currency, product.locale)} <span>{product.currency}</span></strong>
             <StockLabel product={product} />
             <p className="product-detail__description">{product.description}</p>
             <dl className="product-detail__metadata">
@@ -46,7 +49,7 @@ const ProductDetail = ({ product }) => {
             <div className="product-detail__tags" aria-label="Características del producto">
               {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>
+            {inquiryUrl && <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>}
           </div>
         </div>
       </main>
