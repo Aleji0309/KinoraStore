@@ -886,8 +886,39 @@ const productSpecifications = {
   },
 };
 
+const costaRicaCommercialData = {
+  "KIN-FID-001": { price: 8500 },
+  "KIN-LOG-001": { price: 13500 },
+  "KIN-LOG-002": { price: 18500 },
+  "KIN-FOC-001": { price: 46500 },
+  "KIN-LOG-003": { price: 10500 },
+  "KIN-LOG-004": { price: 9500 },
+  "KIN-LOG-005": { price: 11500 },
+  "KIN-LOG-006": { price: 9500 },
+  "KIN-LOG-007": { price: 11500 },
+  "KIN-LOG-008": { price: 11500 },
+  "KIN-LOG-009": { price: 16500 },
+  "KIN-LOG-010": { price: 11500 },
+  "KIN-FID-002": { price: 8500 },
+  "KIN-FID-003": { price: 8500 },
+  "KIN-FID-004": { price: 9500 },
+  "KIN-FID-005": { price: 8500 },
+  "KIN-LOG-011": { price: 21500 },
+  "KIN-LOG-012": { price: 8500 },
+  "KIN-LOG-013": { price: 9500 },
+  "KIN-LOG-014": { price: 8500 },
+  "KIN-LOG-015": { price: 8500 },
+};
+const isCostaRicaMarket = import.meta.env.VITE_MARKET === "CR";
 export const products = catalogProducts.map((product) => ({
   ...product,
+  ...(isCostaRicaMarket && {
+    ...costaRicaCommercialData[product.id],
+    currency: "CRC",
+    locale: "es-CR",
+    priceStatus: "final",
+    enabled: true,
+  }),
   ...productMetadata[product.id],
   specifications: {
     ...productSpecifications[product.id],
