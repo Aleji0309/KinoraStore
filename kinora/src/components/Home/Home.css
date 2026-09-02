@@ -594,6 +594,10 @@
   font-size: var(--font-size-xs);
 }
 
+.home-footer__bottom .home-footer__shipping {
+  margin-bottom: 0.5rem;
+}
+
 @media (max-width: 56rem) {
   .home-hero {
     grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.75fr);

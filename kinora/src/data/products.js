@@ -909,7 +909,7 @@ const costaRicaCommercialData = {
   "KIN-LOG-014": { price: 8500 },
   "KIN-LOG-015": { price: 8500 },
 };
-const isCostaRicaMarket = import.meta.env.VITE_MARKET === "CR";
+export const isCostaRicaMarket = import.meta.env.VITE_MARKET === "CR";
 export const products = catalogProducts.map((product) => ({
   ...product,
   ...(isCostaRicaMarket && {

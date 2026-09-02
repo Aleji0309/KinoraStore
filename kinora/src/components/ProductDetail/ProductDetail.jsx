@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { isCostaRicaMarket } from "../../data/products";
 import "./ProductDetail.css";
 const StockLabel = ({ product }) => {
   if (product.stockStatus === "order_only") return <span className="product-detail__stock product-detail__stock--order">Disponible por encargo</span>;
@@ -79,6 +80,7 @@ const ProductDetail = ({ product }) => {
             <span className="product-detail__category">{product.category}</span>
             <h1>{product.name}</h1>
             <strong className="product-detail__price">{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
+            {isCostaRicaMarket && <p className="product-detail__shipping">Precio final — envío incluido en Costa Rica</p>}
             <StockLabel product={product} />
             <dl className="product-detail__metadata">
               <div><dt>Habilidades</dt><dd>{product.skills.join(", ")}</dd></div>

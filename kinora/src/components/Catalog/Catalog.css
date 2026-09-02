@@ -158,6 +158,16 @@
   font-size: var(--font-size-xs);
 }
 
+.catalog-product-card__price {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.catalog-product-card__price small {
+  color: var(--color-fog);
+  font-size: var(--font-size-xs);
+}
+
 .catalog-product-card__action {
   display: inline-flex;
   align-items: center;

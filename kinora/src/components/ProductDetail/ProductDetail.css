@@ -138,6 +138,12 @@
   font-size: var(--font-size-sm);
 }
 
+.product-detail__shipping {
+  margin: 0.25rem 0 0;
+  color: var(--color-fog);
+  font-size: var(--font-size-sm);
+}
+
 .product-detail__stock {
   margin-top: 0.7rem;
   border: 1px solid var(--color-white);

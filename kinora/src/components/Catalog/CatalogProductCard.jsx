@@ -1,4 +1,5 @@
 import { formatCurrency } from "../../utils/formatCurrency";
+import { isCostaRicaMarket } from "../../data/products";
 const CatalogProductCard = ({ product }) => {
   const availability = product.stockStatus === "order_only"
     ? "Disponible por encargo"
@@ -19,7 +20,10 @@ const CatalogProductCard = ({ product }) => {
         <p>{product.shortDescription}</p>
         <p className="catalog-product-card__skills"><strong>Habilidades:</strong> {product.skills.join(", ")}</p>
         <div className="catalog-product-card__footer">
-          <strong>{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
+          <div className="catalog-product-card__price">
+            <strong>{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
+            {isCostaRicaMarket && <small>Envío incluido 🇨🇷</small>}
+          </div>
           <a className="catalog-product-card__action" href={`/productos/${product.slug}`}>Ver producto</a>
         </div>
       </div>
