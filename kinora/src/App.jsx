@@ -3,7 +3,8 @@ import Home from "./components/Home/Home";
 import Catalog from "./components/Catalog/Catalog";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import About from "./components/About/About";
-import { products } from "./data/products";
+import CartDrawer from "./components/Cart/CartDrawer";
+import { isCostaRicaMarket, products } from "./data/products";
 function App() {
   const pathname = window.location.pathname.replace(/\/$/, "") || "/";
   const productPathMatch = pathname.match(/^\/productos\/([^/]+)\/?$/);
@@ -21,6 +22,7 @@ function App() {
     <div>
       <Header />
       {renderPage()}
+      {isCostaRicaMarket && <CartDrawer />}
     </div>
   );
 }

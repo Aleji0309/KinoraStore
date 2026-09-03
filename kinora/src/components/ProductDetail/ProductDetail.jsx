@@ -2,6 +2,7 @@ import { useState } from "react";
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { isCostaRicaMarket } from "../../data/products";
+import { useCart } from "../../context/cartContext";
 import "./ProductDetail.css";
 const StockLabel = ({ product }) => {
   if (product.stockStatus === "order_only") return <span className="product-detail__stock product-detail__stock--order">Disponible por encargo</span>;
@@ -32,6 +33,7 @@ const SpecificationGroup = ({ title, items }) => {
   );
 };
 const ProductDetail = ({ product }) => {
+  const { items, addItem, openCart } = useCart();
   const galleryImages = product?.images?.length ? product.images : product ? [product.image] : [];
   const [selectedImage, setSelectedImage] = useState(galleryImages[0]);
   if (!product) {
@@ -50,6 +52,12 @@ const ProductDetail = ({ product }) => {
   const orderNote = product.stockStatus === "order_only" ? " Vi que está disponible por encargo." : "";
   const inquiryMessage = `Hola, vi ${product.name} en Kinora y me interesa.${orderNote} ¿Me puedes dar más información?`;
   const inquiryUrl = `https://wa.me/525652069271?text=${encodeURIComponent(inquiryMessage)}`;
+  const cartItem = items.find((item) => item.productId === product.id);
+  const cannotAddToCart = product.enabled === false || product.stock === 0 || (cartItem && cartItem.quantity >= cartItem.stock);
+  const handleAddToCart = () => {
+    addItem(product);
+    openCart();
+  };
   return (
     <>
       <main className="product-detail">
@@ -88,7 +96,9 @@ const ProductDetail = ({ product }) => {
             <div className="product-detail__tags" aria-label="Etiquetas del producto">
               {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>
+            {isCostaRicaMarket
+              ? <button type="button" className="product-detail__add" disabled={cannotAddToCart} onClick={handleAddToCart}>{product.stock === 0 ? "Agotado" : cannotAddToCart ? "Máximo disponible en el carrito" : "Agregar al carrito"}</button>
+              : <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>}
           </div>
         </div>
         {product.specifications && (
