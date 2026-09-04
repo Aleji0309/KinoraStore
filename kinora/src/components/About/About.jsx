@@ -1,13 +1,11 @@
 import Footer from "../Home/Footer";
 import "./About.css";
-
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.2-4.3a8.5 8.5 0 1 1 15.8-4.4Z" />
     <path d="M9 8.1c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.8 1.9c.1.3 0 .5-.2.7l-.6.7c.8 1.5 1.9 2.5 3.4 3.2l.7-.9c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.6 0 .8-.4 1.5-1.1 1.9-.6.4-1.5.5-2.2.3-1.5-.4-3.3-1.4-4.8-2.9-1.4-1.4-2.4-3.1-2.7-4.4-.2-.7 0-1.3.4-1.8Z" />
   </svg>
 );
-
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
@@ -15,7 +13,6 @@ const InstagramIcon = () => (
     <circle cx="17.4" cy="6.8" r=".7" className="about__icon-dot" />
   </svg>
 );
-
 const About = () => (
   <>
     <main className="about">
@@ -41,5 +38,4 @@ const About = () => (
     <Footer />
   </>
 );
-
 export default About;

@@ -19,6 +19,11 @@ const CartDrawer = () => {
   const handleClearCart = () => {
     if (window.confirm("¿Quieres vaciar el carrito?")) clearCart();
   };
+  const handleCheckout = () => {
+    if (items.length === 0) return;
+    closeCart();
+    window.location.assign("/checkout");
+  };
   return (
     <div className="cart-overlay" onMouseDown={(event) => event.target === event.currentTarget && closeCart()}>
       <aside className="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
@@ -63,8 +68,7 @@ const CartDrawer = () => {
             <div className="cart-drawer__summary"><span>Envío estándar</span><strong>Incluido</strong></div>
             <div className="cart-drawer__summary cart-drawer__summary--total"><span>Total</span><strong>{formatCurrency(subtotal, currency)} <span>{currency}</span></strong></div>
             <p className="cart-drawer__shipping"><strong>Envío estándar incluido dentro de Costa Rica 🇨🇷</strong><span>Algunas zonas de difícil acceso pueden requerir un cargo adicional.</span></p>
-            <button type="button" className="cart-drawer__checkout" disabled>Continuar con el pedido</button>
-            <span className="cart-drawer__coming-soon">Checkout disponible próximamente</span>
+            <button type="button" className="cart-drawer__checkout" onClick={handleCheckout}>Continuar con el pedido</button>
             <button type="button" className="cart-drawer__clear" onClick={handleClearCart}>Vaciar carrito</button>
           </footer>
         )}

@@ -1,16 +1,61 @@
-# React + Vite
+# Kinora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda de Kinora construida con React y Vite. México y Costa Rica se despliegan desde el mismo código mediante `VITE_MARKET`.
 
-Currently, two official plugins are available:
+## Desarrollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Instala dependencias con `npm install`.
 
-## React Compiler
+El frontend sin Functions puede ejecutarse con:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+VITE_MARKET=CR npm run dev
+VITE_MARKET=MX npm run dev
+```
 
-## Expanding the ESLint configuration
+## Supabase orders setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Los pedidos de Costa Rica se crean mediante `/.netlify/functions/create-order`. El frontend nunca se conecta directamente a Supabase y no recibe la service role key.
+
+1. Crea un proyecto en Supabase.
+2. Abre el SQL Editor y ejecuta `supabase/migrations/001_create_orders.sql`.
+3. En **Project Settings → API**, copia la Project URL.
+4. Obtén la service role key. Es un secreto exclusivamente server-side; nunca debe llevar prefijo `VITE_`.
+5. En cada entorno que crea pedidos configura:
+
+```text
+SUPABASE_URL=https://TU-PROYECTO.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=TU_SERVICE_ROLE_KEY
+```
+
+6. En Netlify agrega ambas variables desde **Site configuration → Environment variables**. Mantén también `VITE_MARKET=CR` en el Site de Costa Rica y `VITE_MARKET=MX` en el de México.
+
+La migración activa RLS y no crea políticas públicas de escritura. Los inserts se realizan únicamente desde la Netlify Function autenticada con la service role key.
+
+## Probar Functions localmente
+
+Para probar el flujo completo se necesita Netlify CLI, porque `npm run dev` por sí solo no expone `/.netlify/functions/*`.
+
+1. Crea un `.env` no versionado a partir de `.env.example`, cambia `VITE_MARKET` a `CR` y agrega credenciales de un proyecto Supabase de desarrollo. Netlify Dev carga este archivo local.
+2. Inicia Netlify Dev para Costa Rica:
+
+```sh
+VITE_MARKET=CR npx netlify-cli dev
+```
+
+3. Abre la URL local indicada por Netlify CLI, agrega un producto y completa `/checkout`.
+
+Las pruebas automatizadas de la Function usan un cliente Supabase simulado y no requieren secretos:
+
+```sh
+npm run test:function
+```
+
+## Builds
+
+```sh
+VITE_MARKET=CR npm run build
+VITE_MARKET=MX npm run build
+```
+
+Netlify usa `npm run build`, publica `dist` y obtiene `VITE_MARKET` desde las variables propias de cada Site.

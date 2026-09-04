@@ -21,9 +21,10 @@ const metalPuzzleTrioImage = "/images/products/KIN-LOG-020-main.png";
 const metalChallengeTrioImage = "/images/products/KIN-LOG-021-main.png";
 const catalogProducts = [
   {
-    id: "KIN-FID-001",
+    id: "KIN-FID-ARTURITO",
     slug: "fijoles-magicos",
     name: "Cubo Mágico de Frijol con Rotación",
+    video: "/videos/products/KIN-FID-ARTURITO-demo.mp4",
     shortDescription: "Un rompecabezas lógico de rotación con pequeñas esferas de colores.",
     description: "Un reto de lógica y coordinación que combina movimiento, estrategia y paciencia. Gira y desplaza las pequeñas esferas de colores hasta lograr ordenarlas correctamente en cada sección. Cada movimiento cambia la posición de las piezas, así que tendrás que observar, planear y probar distintas combinaciones para resolverlo.\n\nEs un desafío compacto y entretenido para poner a trabajar el pensamiento lógico, la concentración y la resolución de problemas mientras juegas a tu propio ritmo.",
     price: 149,
@@ -47,6 +48,7 @@ const catalogProducts = [
     id: "KIN-LOG-001",
     slug: "time-machine",
     name: "Cubo Máquina del Tiempo (Time Machine)",
+    video: "/videos/products/KIN-LOG-001-demo.mp4",
     shortDescription: "Un cubo de números con una mecánica de rompecabezas lógico.",
     description: "El Time Machine lleva el clásico reto de los cubos a una mecánica diferente. Sus números y piezas giratorias convierten cada movimiento en un pequeño problema que tendrás que observar, analizar y reorganizar hasta encontrar la combinación correcta.\n\nResolverlo requiere probar movimientos, reconocer patrones y anticipar cómo cada giro modifica las demás piezas. Es un reto entretenido para ejercitar el pensamiento lógico, la concentración, la memoria visual y la resolución de problemas mientras buscas devolver cada número a su posición.",
     price: 399,
@@ -231,6 +233,7 @@ const catalogProducts = [
     id: "KIN-LOG-008",
     slug: "laberinto-esferico-transparente",
     name: "Esfera Desenreda Nudos 360°",
+    video: "/videos/products/KIN-LOG-008-demo.mp4",
     shortDescription: "Un puzzle tipo laberinto para desenredar cuerdas dentro de una esfera transparente.",
     description: "Esfera Desenreda Nudos 360° es un rompecabezas de lógica espacial en el que tendrás que liberar un conjunto de cuerdas de colores atrapadas dentro de una esfera transparente.\n\nPara resolverlo, mueve los controles de colores a través de las ranuras exteriores mientras giras y reorganizas el mecanismo interno. Cada movimiento modifica la posición de las cuerdas y puede acercarte a la solución… o crear un nuevo nudo que tendrás que analizar.\n\nEl desafío termina cuando todas las cuerdas quedan nuevamente rectas, separadas y sin cruzarse. Su esfera interior con giro libre de 360° añade una dimensión extra al reto y obliga a observar el problema desde diferentes posiciones.",
     price: 249,
@@ -276,6 +279,7 @@ const catalogProducts = [
     id: "KIN-LOG-010",
     slug: "puzzle-cube-lineas-de-colores",
     name: "Cubo de Líneas 3×3",
+    video: "/videos/products/KIN-LOG-010-demo.mp4",
     shortDescription: "Un rompecabezas visual tipo puzzle: cubo 3x3 blanco con líneas de colores (cubo lineas).",
     description: "El Cubo de Líneas 3×3 transforma el clásico mecanismo de giro en un desafío visual diferente. En lugar de ordenar cada cara por colores, tendrás que observar las líneas que recorren sus piezas y reorganizarlas hasta reconstruir correctamente sus patrones.\n\nCada giro modifica varios recorridos al mismo tiempo, por lo que tendrás que analizar cómo se conectan las líneas, reconocer patrones y planear tus siguientes movimientos para acercarte a la solución.\n\nSu formato compacto permite volver a mezclarlo y resolverlo tantas veces como quieras, convirtiéndolo en un reto de lógica y percepción visual basado en movimientos, conexiones y patrones de colores.",
     price: 299,
@@ -317,6 +321,7 @@ const catalogProducts = [
     id: "KIN-FID-003",
     slug: "bola-sensorial-con-botones",
     name: "Bola Arcoíris de 12 Agujeros",
+    video: "/videos/products/KIN-FID-003-demo.mp4",
     shortDescription: "Un rompecabezas de lógica tipo puzzle: una bola de colores o bola arcoiris con bolitas móviles.",
     description: "Bola Arcoíris de 12 Agujeros es un rompecabezas de manipulación formado por una esfera con pequeñas bolitas de colores que pueden desplazarse entre sus diferentes espacios.\n\nEl reto consiste en mover las bolitas, observar su posición y reorganizarlas mediante diferentes combinaciones de movimientos. Su mecanismo permite comenzar de nuevo fácilmente y probar distintas formas de ordenar los colores.\n\nSu formato compacto permite llevarla y jugar en sesiones cortas, poniendo en práctica la concentración, la coordinación y el reconocimiento de patrones.",
     warning: "Advertencia: No calentar, introducir en el microondas, congelar ni perforar. Los niños deben utilizar el producto bajo supervisión de un adulto.",
@@ -361,9 +366,10 @@ const catalogProducts = [
     stockStatus: "in_stock",
   },
   {
-    id: "KIN-FID-005",
+    id: "KIN-FID-ESTRELLA",
     slug: "fidget-de-aros-giratorios",
     name: "Cubo Giratorio Magic Bean de 6 Lados",
+    video: "/videos/products/KIN-FID-ESTRELLA-demo.mp4",
     shortDescription: "Un rompecabezas de lógica tipo puzzle de rotación con bolitas de colores y frijoles mágicos (frijoles magicos).",
     description: "Cubo Giratorio Magic Bean de 6 Lados combina movimientos de rotación con pequeñas bolitas de colores que pueden desplazarse entre distintas posiciones.\n\nSus diferentes secciones pueden girarse sobre varios ejes, cambiando la ubicación de las bolitas con cada movimiento. El reto consiste en observar su distribución, experimentar con los giros y encontrar las combinaciones necesarias para reorganizarlas.\n\nAdemás del rompecabezas, su diseño permite hacerlo girar sobre su eje, ofreciendo una segunda forma de interactuar con sus piezas y movimientos.",
     price: 199,
@@ -387,6 +393,7 @@ const catalogProducts = [
     id: "KIN-LOG-011",
     slug: "cubo-calendario-7x7",
     name: "Cubo Calendario 7×7×7",
+    video: "/videos/products/KIN-LOG-011-demo.mp4",
     shortDescription: "Un cubo lógico o cubo 7x7 tipo puzzle, con configuración 7x7x7, números (numeros), fechas y calendario.",
     description: "Cubo Calendario 7×7×7 es un rompecabezas de múltiples capas que lleva el clásico mecanismo de giro a un nivel más complejo.\n\nSus caras están divididas en una cuadrícula 7×7 y utilizan números y referencias de calendario en lugar de los colores tradicionales. Cada movimiento modifica numerosas piezas al mismo tiempo, por lo que tendrás que observar patrones, planear secuencias de movimientos y mantener el control de distintas secciones mientras reorganizas el cubo.\n\nEs un desafío pensado para quienes disfrutan los rompecabezas de lógica con mayor dificultad y quieren enfrentarse a una configuración más exigente.",
     price: 499,
@@ -492,9 +499,8 @@ const catalogProducts = [
     stockStatus: "in_stock",
   },
 ];
-
 const productMetadata = {
-  "KIN-FID-001": { skills: ["pensamiento lógico", "concentración", "resolución de problemas", "coordinación"], ageRecommendation: "6 años en adelante" },
+  "KIN-FID-ARTURITO": { skills: ["pensamiento lógico", "concentración", "resolución de problemas", "coordinación"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-001": { skills: ["pensamiento lógico", "concentración", "reconocimiento de patrones", "resolución de problemas"] },
   "KIN-LOG-002": { skills: ["pensamiento lógico", "concentración", "planificación", "resolución de problemas"], ageRecommendation: "14 años en adelante" },
   "KIN-FOC-001": { skills: ["pensamiento lógico", "deducción", "reconocimiento de patrones", "resolución de problemas", "estrategia"], ageRecommendation: "5 años en adelante" },
@@ -509,16 +515,15 @@ const productMetadata = {
   "KIN-FID-002": { skills: ["concentración", "coordinación", "reconocimiento de patrones", "pensamiento lógico", "resolución de problemas"] },
   "KIN-FID-003": { skills: ["concentración", "coordinación", "reconocimiento de patrones", "pensamiento lógico", "resolución de problemas"] },
   "KIN-FID-004": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "resolución de problemas"] },
-  "KIN-FID-005": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "percepción espacial"] },
+  "KIN-FID-ESTRELLA": { skills: ["pensamiento lógico", "concentración", "coordinación", "reconocimiento de patrones", "percepción espacial"] },
   "KIN-LOG-011": { skills: ["pensamiento lógico", "concentración", "planificación", "reconocimiento de patrones", "resolución de problemas"] },
   "KIN-LOG-012": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "planificación", "resolución de problemas"] },
   "KIN-LOG-013": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "concentración", "resolución de problemas"] },
   "KIN-LOG-014": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "concentración", "resolución de problemas"] },
   "KIN-LOG-015": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "planificación", "resolución de problemas"] },
 };
-
 const productSpecifications = {
-  "KIN-FID-001": {
+  "KIN-FID-ARTURITO": {
     primary: [
       { label: "Tipo de juego", value: "Rompecabezas lógico" },
       { label: "Material", value: "Plástico" },
@@ -776,7 +781,7 @@ const productSpecifications = {
       { label: "Uso", value: "Recreativo" },
     ],
   },
-  "KIN-FID-005": {
+  "KIN-FID-ESTRELLA": {
     primary: [
       { label: "Tipo de juego", value: "Rompecabezas de lógica y manipulación" },
       { label: "Modalidad", value: "Rotación y desplazamiento de bolitas" },
@@ -885,40 +890,45 @@ const productSpecifications = {
     ],
   },
 };
-
 const costaRicaCommercialData = {
-  "KIN-FID-001": { price: 8500 },
-  "KIN-LOG-001": { price: 13500 },
-  "KIN-LOG-002": { price: 18500 },
-  "KIN-FOC-001": { price: 46500 },
-  "KIN-LOG-003": { price: 10500 },
-  "KIN-LOG-004": { price: 9500 },
-  "KIN-LOG-005": { price: 11500 },
-  "KIN-LOG-006": { price: 9500 },
-  "KIN-LOG-007": { price: 11500 },
-  "KIN-LOG-008": { price: 11500 },
-  "KIN-LOG-009": { price: 16500 },
-  "KIN-LOG-010": { price: 11500 },
-  "KIN-FID-002": { price: 8500 },
-  "KIN-FID-003": { price: 8500 },
-  "KIN-FID-004": { price: 9500 },
-  "KIN-FID-005": { price: 8500 },
-  "KIN-LOG-011": { price: 21500 },
-  "KIN-LOG-012": { price: 8500 },
-  "KIN-LOG-013": { price: 9500 },
-  "KIN-LOG-014": { price: 8500 },
-  "KIN-LOG-015": { price: 8500 },
+  "KIN-FID-ARTURITO": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-001": { price: 15500, stock: 6, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-002": { price: 19500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-FOC-001": { price: 48500, stock: null, enabled: true, stockStatus: "order_only" },
+  "KIN-LOG-003": { price: 12500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-004": { price: 9500, stock: 1, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-005": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-006": { price: 6500, stock: 2, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-007": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-008": { price: 16500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-009": { price: 16500, stock: 2, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-010": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-FID-002": { price: 8500, stock: 0, enabled: true, stockStatus: "in_stock" },
+  "KIN-FID-003": { price: 8500, stock: 6, enabled: true, stockStatus: "in_stock" },
+  "KIN-FID-004": { price: 9500, stock: 1, enabled: true, stockStatus: "in_stock" },
+  "KIN-FID-ESTRELLA": { price: 9500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-011": { price: 23500, stock: 2, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-012": { price: 8500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-013": { price: 9500, stock: 6, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-014": { price: 8500, stock: 4, enabled: true, stockStatus: "in_stock" },
+  "KIN-LOG-015": { price: 8500, stock: 2, enabled: true, stockStatus: "in_stock" },
 };
-export const isCostaRicaMarket = import.meta.env.VITE_MARKET === "CR";
-export const products = catalogProducts.map((product) => ({
-  ...product,
-  ...(isCostaRicaMarket && {
-    ...costaRicaCommercialData[product.id],
+export const getCostaRicaProductById = (productId) => {
+  const product = catalogProducts.find(({ id }) => id === productId);
+  const commercialData = costaRicaCommercialData[productId];
+  if (!product || !commercialData) return null;
+  return {
+    ...product,
+    ...commercialData,
     currency: "CRC",
     locale: "es-CR",
     priceStatus: "final",
-    enabled: true,
-  }),
+  };
+};
+export const isCostaRicaMarket = import.meta.env?.VITE_MARKET === "CR";
+export const products = catalogProducts.map((product) => ({
+  ...product,
+  ...(isCostaRicaMarket && getCostaRicaProductById(product.id)),
   ...productMetadata[product.id],
   specifications: {
     ...productSpecifications[product.id],

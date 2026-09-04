@@ -32,6 +32,11 @@ const SpecificationGroup = ({ title, items }) => {
     </section>
   );
 };
+const enforceMutedVideo = (event) => {
+  event.currentTarget.muted = true;
+  event.currentTarget.defaultMuted = true;
+  event.currentTarget.volume = 0;
+};
 const ProductDetail = ({ product }) => {
   const { items, addItem, openCart } = useCart();
   const galleryImages = product?.images?.length ? product.images : product ? [product.image] : [];
@@ -101,6 +106,25 @@ const ProductDetail = ({ product }) => {
               : <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>}
           </div>
         </div>
+        {product.video && (
+          <section className="product-video" aria-labelledby="product-video-title">
+            <h2 id="product-video-title">Mira cómo funciona</h2>
+            <video
+              controls
+              muted
+              playsInline
+              preload="metadata"
+              aria-label={`Video demostrativo de ${product.name}`}
+              onLoadStart={enforceMutedVideo}
+              onLoadedMetadata={enforceMutedVideo}
+              onPlay={enforceMutedVideo}
+              onVolumeChange={enforceMutedVideo}
+            >
+              <source src={product.video} type="video/mp4" />
+              Tu navegador no puede reproducir este video.
+            </video>
+          </section>
+        )}
         {product.specifications && (
           <section className="product-specifications" aria-labelledby="product-specifications-title">
             <h2 id="product-specifications-title">Características del producto</h2>

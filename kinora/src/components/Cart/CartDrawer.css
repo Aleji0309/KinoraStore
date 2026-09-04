@@ -52,7 +52,8 @@
 .cart-drawer__close:focus-visible,
 .cart-item__quantity button:focus-visible,
 .cart-item__remove:focus-visible,
-.cart-drawer__empty a:focus-visible {
+.cart-drawer__empty a:focus-visible,
+.cart-drawer__checkout:focus-visible {
   outline: 3px solid var(--color-sky);
   outline-offset: 2px;
 }
@@ -249,18 +250,10 @@
   margin-top: 1rem;
   border: 0;
   border-radius: 0.75rem;
-  background-color: var(--color-border);
-  color: var(--color-fog);
+  background-color: var(--color-sky);
+  color: var(--color-white);
   font-weight: 700;
-  cursor: not-allowed;
-}
-
-.cart-drawer__coming-soon {
-  display: block;
-  margin-top: 0.4rem;
-  color: var(--color-fog);
-  font-size: var(--font-size-xs);
-  text-align: center;
+  cursor: pointer;
 }
 
 .cart-drawer__clear {

@@ -4,6 +4,7 @@ import Catalog from "./components/Catalog/Catalog";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import About from "./components/About/About";
 import CartDrawer from "./components/Cart/CartDrawer";
+import Checkout from "./components/Checkout/Checkout";
 import { isCostaRicaMarket, products } from "./data/products";
 function App() {
   const pathname = window.location.pathname.replace(/\/$/, "") || "/";
@@ -12,6 +13,13 @@ function App() {
   const product = productSlug ? products.find((item) => item.slug === productSlug) : null;
   const searchQuery = new URLSearchParams(window.location.search).get("q") ?? "";
   const renderPage = () => {
+    if (pathname === "/checkout") {
+      if (!isCostaRicaMarket) {
+        window.location.replace("/categorias");
+        return null;
+      }
+      return <Checkout />;
+    }
     if (productSlug) return <ProductDetail product={product} />;
     if (pathname === "/categorias") return <Catalog />;
     if (pathname === "/buscar") return <Catalog query={searchQuery} />;
