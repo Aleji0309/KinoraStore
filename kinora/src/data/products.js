@@ -1,3 +1,5 @@
+import { marketConfig } from "../config/markets.js";
+
 const magicBeansImage = "/images/products/KIN-LOG-001-main.png";
 const timeMachineImage = "/images/products/KIN-LOG-002-main.png";
 const woodenSudokuImage = "/images/products/KIN-LOG-003-main.png";
@@ -19,7 +21,7 @@ const ballPyramidImage = "/images/products/KIN-LOG-018-main.png";
 const sixMetalPuzzlesImage = "/images/products/KIN-LOG-019-main.png";
 const metalPuzzleTrioImage = "/images/products/KIN-LOG-020-main.png";
 const metalChallengeTrioImage = "/images/products/KIN-LOG-021-main.png";
-const catalogProducts = [
+export const catalogProducts = [
   {
     id: "KIN-FID-ARTURITO",
     slug: "fijoles-magicos",
@@ -890,51 +892,24 @@ const productSpecifications = {
     ],
   },
 };
-const costaRicaCommercialData = {
-  "KIN-FID-ARTURITO": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-001": { price: 15500, stock: 6, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-002": { price: 19500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-FOC-001": { price: 48500, stock: null, enabled: true, stockStatus: "order_only" },
-  "KIN-LOG-003": { price: 12500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-004": { price: 9500, stock: 1, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-005": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-006": { price: 6500, stock: 2, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-007": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-008": { price: 16500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-009": { price: 16500, stock: 2, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-010": { price: 11500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-FID-002": { price: 8500, stock: 0, enabled: true, stockStatus: "in_stock" },
-  "KIN-FID-003": { price: 8500, stock: 6, enabled: true, stockStatus: "in_stock" },
-  "KIN-FID-004": { price: 9500, stock: 1, enabled: true, stockStatus: "in_stock" },
-  "KIN-FID-ESTRELLA": { price: 9500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-011": { price: 23500, stock: 2, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-012": { price: 8500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-013": { price: 9500, stock: 6, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-014": { price: 8500, stock: 4, enabled: true, stockStatus: "in_stock" },
-  "KIN-LOG-015": { price: 8500, stock: 2, enabled: true, stockStatus: "in_stock" },
-};
-export const getCostaRicaProductById = (productId) => {
-  const product = catalogProducts.find(({ id }) => id === productId);
-  const commercialData = costaRicaCommercialData[productId];
-  if (!product || !commercialData) return null;
-  return {
-    ...product,
-    ...commercialData,
-    currency: "CRC",
-    locale: "es-CR",
-    priceStatus: "final",
-  };
-};
-export const isCostaRicaMarket = import.meta.env?.VITE_MARKET === "CR";
-export const products = catalogProducts.map((product) => ({
-  ...product,
-  ...(isCostaRicaMarket && getCostaRicaProductById(product.id)),
-  ...productMetadata[product.id],
-  specifications: {
-    ...productSpecifications[product.id],
-    details: [
-      { label: "Edad recomendada", value: productMetadata[product.id]?.ageRecommendation },
-      ...(productSpecifications[product.id]?.details ?? []),
-    ],
-  },
-}));
+export const products = catalogProducts
+  .map((product) => {
+    const commercialData = marketConfig.commerce[product.id];
+    if (!commercialData || commercialData.enabled === false) return null;
+    return {
+      ...product,
+      ...commercialData,
+      currency: marketConfig.currency,
+      locale: marketConfig.locale,
+      priceStatus: "final",
+      ...productMetadata[product.id],
+      specifications: {
+        ...productSpecifications[product.id],
+        details: [
+          { label: "Edad recomendada", value: productMetadata[product.id]?.ageRecommendation },
+          ...(productSpecifications[product.id]?.details ?? []),
+        ],
+      },
+    };
+  })
+  .filter(Boolean);

@@ -5,7 +5,8 @@ import ProductDetail from "./components/ProductDetail/ProductDetail";
 import About from "./components/About/About";
 import CartDrawer from "./components/Cart/CartDrawer";
 import Checkout from "./components/Checkout/Checkout";
-import { isCostaRicaMarket, products } from "./data/products";
+import { marketConfig } from "./config/markets";
+import { products } from "./data/products";
 function App() {
   const pathname = window.location.pathname.replace(/\/$/, "") || "/";
   const productPathMatch = pathname.match(/^\/productos\/([^/]+)\/?$/);
@@ -14,7 +15,7 @@ function App() {
   const searchQuery = new URLSearchParams(window.location.search).get("q") ?? "";
   const renderPage = () => {
     if (pathname === "/checkout") {
-      if (!isCostaRicaMarket) {
+      if (marketConfig.market !== "CR") {
         window.location.replace("/categorias");
         return null;
       }
@@ -30,7 +31,7 @@ function App() {
     <div>
       <Header />
       {renderPage()}
-      {isCostaRicaMarket && <CartDrawer />}
+      {marketConfig.market === "CR" && <CartDrawer />}
     </div>
   );
 }

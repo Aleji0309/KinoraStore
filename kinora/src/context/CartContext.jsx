@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { CartContext } from "./cartContext";
-import { isCostaRicaMarket, products } from "../data/products";
+import { marketConfig } from "../config/markets";
+import { products } from "../data/products";
 const CART_STORAGE_KEY = "kinora_cr_cart";
 const getAvailableStock = (product) => Number.isInteger(product.stock) && product.stock > 0 ? product.stock : 1;
 const loadCart = () => {
-  if (!isCostaRicaMarket) return [];
+  if (marketConfig.market !== "CR") return [];
   try {
     const storedItems = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) ?? "[]");
     if (!Array.isArray(storedItems)) return [];
@@ -30,7 +31,7 @@ export const CartProvider = ({ children }) => {
   const [items, setItems] = useState(loadCart);
   const [isCartOpen, setIsCartOpen] = useState(false);
   useEffect(() => {
-    if (!isCostaRicaMarket) return;
+    if (marketConfig.market !== "CR") return;
     try {
       if (items.length === 0) localStorage.removeItem(CART_STORAGE_KEY);
       else localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
@@ -39,7 +40,7 @@ export const CartProvider = ({ children }) => {
     }
   }, [items]);
   const addItem = (product) => {
-    if (!isCostaRicaMarket || product.enabled === false || product.stock === 0) return;
+    if (marketConfig.market !== "CR" || product.enabled === false || product.stock === 0) return;
     const stock = getAvailableStock(product);
     setItems((currentItems) => {
       const existingItem = currentItems.find((item) => item.productId === product.id);

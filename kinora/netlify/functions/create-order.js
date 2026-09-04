@@ -2,11 +2,24 @@ import { Buffer } from "node:buffer";
 import { randomUUID } from "node:crypto";
 import process from "node:process";
 import { createClient } from "@supabase/supabase-js";
-import { getCostaRicaProductById } from "../../src/data/products.js";
+import { marketConfigs } from "../../src/config/markets.js";
+import { catalogProducts } from "../../src/data/products.js";
 const ALLOWED_PROVINCES = new Set(["San José", "Alajuela", "Cartago", "Heredia", "Guanacaste", "Puntarenas", "Limón"]);
 const MAX_BODY_BYTES = 50_000;
 const MAX_ITEMS = 50;
 const MAX_QUANTITY_PER_ITEM = 50;
+const getCostaRicaOrderProduct = (productId) => {
+  const product = catalogProducts.find(({ id }) => id === productId);
+  const commercialData = marketConfigs.CR.commerce[productId];
+  if (!product || !commercialData) return null;
+  return {
+    ...product,
+    ...commercialData,
+    currency: marketConfigs.CR.currency,
+    locale: marketConfigs.CR.locale,
+    priceStatus: "final",
+  };
+};
 const jsonResponse = (statusCode, body) => ({
   statusCode,
   headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
@@ -41,7 +54,7 @@ const parsePayload = (event) => {
     return null;
   }
 };
-export const createOrderHandler = ({ createClientImpl = createClient, env = process.env, randomUUIDImpl = randomUUID, getProductById = getCostaRicaProductById } = {}) => async (event) => {
+export const createOrderHandler = ({ createClientImpl = createClient, env = process.env, randomUUIDImpl = randomUUID, getProductById = getCostaRicaOrderProduct } = {}) => async (event) => {
   if (event.httpMethod !== "POST") return jsonResponse(405, { success: false, error: "Method Not Allowed" });
   const payload = parsePayload(event);
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) return validationError("Solicitud inválida.");

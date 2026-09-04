@@ -1,5 +1,5 @@
 import Logo from "../common/Logo/Logo";
-import { isCostaRicaMarket } from "../../data/products";
+import { marketConfig } from "../../config/markets";
 const Footer = () => {
   return (
     <footer className="home-footer" id="contacto">
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="home-footer__bottom">
-        {isCostaRicaMarket && <p className="home-footer__shipping">Envío estándar incluido dentro de Costa Rica. Algunas zonas de difícil acceso pueden requerir un cargo adicional.</p>}
+        {marketConfig.market === "CR" && <p className="home-footer__shipping">Envío estándar incluido dentro de Costa Rica. Algunas zonas de difícil acceso pueden requerir un cargo adicional.</p>}
         <p>© 2026 Kinora. Todos los derechos reservados.</p>
       </div>
     </footer>

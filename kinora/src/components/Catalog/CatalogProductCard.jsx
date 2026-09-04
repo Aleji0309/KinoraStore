@@ -1,5 +1,5 @@
 import { formatCurrency } from "../../utils/formatCurrency";
-import { isCostaRicaMarket } from "../../data/products";
+import { marketConfig } from "../../config/markets";
 const CatalogProductCard = ({ product }) => {
   const availability = product.stockStatus === "order_only"
     ? "Disponible por encargo"
@@ -22,7 +22,7 @@ const CatalogProductCard = ({ product }) => {
         <div className="catalog-product-card__footer">
           <div className="catalog-product-card__price">
             <strong>{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
-            {isCostaRicaMarket && <small>Envío incluido 🇨🇷</small>}
+            {marketConfig.market === "CR" && <small>Envío incluido 🇨🇷</small>}
           </div>
           <a className="catalog-product-card__action" href={`/productos/${product.slug}`}>Ver producto</a>
         </div>

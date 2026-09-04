@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
-import { isCostaRicaMarket } from "../../data/products";
+import { marketConfig } from "../../config/markets";
 import { useCart } from "../../context/cartContext";
 import "./ProductDetail.css";
 const StockLabel = ({ product }) => {
@@ -93,7 +93,7 @@ const ProductDetail = ({ product }) => {
             <span className="product-detail__category">{product.category}</span>
             <h1>{product.name}</h1>
             <strong className="product-detail__price">{formatCurrency(product.price, product.currency)} <span>{product.currency}</span></strong>
-            {isCostaRicaMarket && <p className="product-detail__shipping">Precio final — envío incluido en Costa Rica</p>}
+            {marketConfig.market === "CR" && <p className="product-detail__shipping">Precio final — envío incluido en Costa Rica</p>}
             <StockLabel product={product} />
             <dl className="product-detail__metadata">
               <div><dt>Habilidades</dt><dd>{product.skills.join(", ")}</dd></div>
@@ -101,7 +101,7 @@ const ProductDetail = ({ product }) => {
             <div className="product-detail__tags" aria-label="Etiquetas del producto">
               {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            {isCostaRicaMarket
+            {marketConfig.market === "CR"
               ? <button type="button" className="product-detail__add" disabled={cannotAddToCart} onClick={handleAddToCart}>{product.stock === 0 ? "Agotado" : cannotAddToCart ? "Máximo disponible en el carrito" : "Agregar al carrito"}</button>
               : <a className="product-detail__add" href={inquiryUrl} target="_blank" rel="noopener noreferrer">{product.stock === 0 ? "Consultar disponibilidad" : "Me interesa"}</a>}
           </div>
