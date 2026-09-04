@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "test:function": "node --test netlify/functions/create-order.test.js",
+    "test:function": "node --test tests/netlify/create-order.test.js",
     "preview": "vite preview"
   },
   "dependencies": {

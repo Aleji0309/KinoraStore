@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createOrderHandler } from "./create-order.js";
+import { createOrderHandler } from "../../netlify/functions/create-order.js";
 const VALID_PAYLOAD = {
   customer: { name: "Ana Pérez", email: "ana@example.com", phone: "8888-8888" },
   shippingAddress: {
