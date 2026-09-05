@@ -123,9 +123,17 @@ export const createOrderHandler = ({ createClientImpl = createClient, env = proc
       total: subtotal,
       items: orderItems,
     }).select("id, order_number").single();
-    if (error || !data?.id || !data?.order_number) return jsonResponse(500, { success: false, error: "No pudimos registrar tu pedido." });
+    if (error) {
+      console.error("Supabase create-order insert error:", error);
+      return jsonResponse(500, { success: false, error: "No pudimos registrar tu pedido." });
+    }
+    if (!data?.id || !data?.order_number) {
+      console.error("Supabase create-order insert did not return the required order identifiers.");
+      return jsonResponse(500, { success: false, error: "No pudimos registrar tu pedido." });
+    }
     return jsonResponse(201, { success: true, orderId: data.id, orderNumber: data.order_number, total: subtotal, currency: "CRC" });
-  } catch {
+  } catch (error) {
+    console.error("Unexpected create-order error:", error);
     return jsonResponse(500, { success: false, error: "No pudimos registrar tu pedido." });
   }
 };
