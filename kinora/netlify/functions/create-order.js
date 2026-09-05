@@ -64,6 +64,8 @@ export const createOrderHandler = ({ createClientImpl = createClient, env = proc
   const province = getString(payload.shippingAddress?.province, { min: 2, max: 20 });
   const canton = getString(payload.shippingAddress?.canton, { min: 2, max: 100 });
   const district = getString(payload.shippingAddress?.district, { min: 2, max: 100 });
+  const postalCodeValue = payload.shippingAddress?.postalCode;
+  const postalCode = typeof postalCodeValue === "string" && /^\d{5}$/.test(postalCodeValue) ? postalCodeValue : null;
   const address = getString(payload.shippingAddress?.address, { min: 5, max: 500 });
   const referenceValue = payload.shippingAddress?.reference;
   const hasReference = referenceValue !== undefined && referenceValue !== null && referenceValue !== "";
@@ -74,6 +76,7 @@ export const createOrderHandler = ({ createClientImpl = createClient, env = proc
   if (!province || !ALLOWED_PROVINCES.has(province)) return validationError("Provincia inválida.");
   if (!canton) return validationError("Cantón inválido.");
   if (!district) return validationError("Distrito inválido.");
+  if (!postalCode) return validationError("Código postal inválido.");
   if (!address) return validationError("Dirección inválida.");
   if (hasReference && reference === null) return validationError("Referencia de entrega inválida.");
   if (!Array.isArray(payload.items) || payload.items.length < 1 || payload.items.length > MAX_ITEMS) return validationError("El pedido debe contener entre 1 y 50 productos.");
@@ -116,6 +119,7 @@ export const createOrderHandler = ({ createClientImpl = createClient, env = proc
       province,
       canton,
       district,
+      postal_code: postalCode,
       address,
       delivery_reference: reference,
       subtotal,

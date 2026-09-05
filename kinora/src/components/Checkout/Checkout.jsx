@@ -11,10 +11,11 @@ const INITIAL_VALUES = {
   province: "",
   canton: "",
   district: "",
+  postalCode: "",
   address: "",
   references: "",
 };
-const REQUIRED_FIELDS = ["fullName", "email", "phone", "province", "canton", "district", "address"];
+const REQUIRED_FIELDS = ["fullName", "email", "phone", "province", "canton", "district", "postalCode", "address"];
 const getErrors = (values) => {
   const errors = {};
   const phoneDigits = values.phone.replace(/\D/g, "");
@@ -24,6 +25,7 @@ const getErrors = (values) => {
   if (!PROVINCES.includes(values.province)) errors.province = "Selecciona una provincia.";
   if (values.canton.trim().length < 2) errors.canton = "Ingresa el cantón.";
   if (values.district.trim().length < 2) errors.district = "Ingresa el distrito.";
+  if (!/^\d{5}$/.test(values.postalCode)) errors.postalCode = "Ingresa un código postal de 5 dígitos.";
   if (values.address.trim().length < 5) errors.address = "Ingresa la dirección de entrega.";
   return errors;
 };
@@ -83,6 +85,7 @@ const Checkout = () => {
             province: values.province,
             canton: values.canton.trim(),
             district: values.district.trim(),
+            postalCode: values.postalCode,
             address: values.address.trim(),
             reference: values.references.trim(),
           },
@@ -170,6 +173,9 @@ const Checkout = () => {
                 </CheckoutField>
                 <CheckoutField id="district" label="Distrito *" error={fieldError("district")}>
                   <input {...fieldProps("district")} type="text" autoComplete="address-level3" maxLength="100" />
+                </CheckoutField>
+                <CheckoutField id="postalCode" label="Código postal *" error={fieldError("postalCode")}>
+                  <input {...fieldProps("postalCode")} type="text" autoComplete="postal-code" inputMode="numeric" pattern="\d{5}" maxLength="5" />
                 </CheckoutField>
                 <CheckoutField id="address" label="Dirección exacta *" error={fieldError("address")}>
                   <textarea {...fieldProps("address")} rows="4" autoComplete="street-address" maxLength="500" placeholder="Barrio, número de casa, color, edificio u otras indicaciones." />
