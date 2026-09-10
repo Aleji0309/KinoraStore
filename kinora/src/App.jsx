@@ -1,3 +1,4 @@
+import AdminPage from "./components/Admin/AdminPage";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Catalog from "./components/Catalog/Catalog";
@@ -7,7 +8,7 @@ import CartDrawer from "./components/Cart/CartDrawer";
 import Checkout from "./components/Checkout/Checkout";
 import { marketConfig } from "./config/markets";
 import { useMarketProducts } from "./hooks/useMarketProducts";
-function App() {
+function Storefront() {
   const { products, loading, error } = useMarketProducts();
   const pathname = window.location.pathname.replace(/\/$/, "") || "/";
   const productPathMatch = pathname.match(/^\/productos\/([^/]+)\/?$/);
@@ -52,5 +53,9 @@ function App() {
       {marketConfig.market === "CR" && <CartDrawer />}
     </div>
   );
+}
+function App() {
+  const pathname = window.location.pathname.replace(/\/$/, "") || "/";
+  return pathname === "/admin" ? <AdminPage /> : <Storefront />;
 }
 export default App;
