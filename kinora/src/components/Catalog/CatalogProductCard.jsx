@@ -1,6 +1,6 @@
 import { formatCurrency } from "../../utils/formatCurrency";
 import { marketConfig } from "../../config/markets";
-const CatalogProductCard = ({ product }) => {
+const CatalogProductCard = ({ product, reviewSummary }) => {
   const availability = product.stockStatus === "order_only"
     ? "Disponible por encargo"
     : product.stock === 0
@@ -17,6 +17,10 @@ const CatalogProductCard = ({ product }) => {
       <div className="catalog-product-card__content">
         <span className="catalog-product-card__category">{product.category}</span>
         <h2>{product.name}</h2>
+        {reviewSummary?.count > 0 && <div className="catalog-product-card__reviews" aria-label={`${reviewSummary.average.toFixed(1)} de 5 estrellas · ${reviewSummary.count} ${reviewSummary.count === 1 ? "opinión" : "opiniones"}`}>
+          <span className="catalog-product-card__review-stars" aria-hidden="true"><span>☆☆☆☆☆</span><span className="catalog-product-card__review-stars-fill" style={{ width: `${reviewSummary.average / 5 * 100}%` }}>★★★★★</span></span>
+          <span aria-hidden="true">{reviewSummary.average.toFixed(1)} · {reviewSummary.count} {reviewSummary.count === 1 ? "opinión" : "opiniones"}</span>
+        </div>}
         <p>{product.shortDescription}</p>
         <p className="catalog-product-card__skills"><strong>Habilidades:</strong> {product.skills.join(", ")}</p>
         <div className="catalog-product-card__footer">

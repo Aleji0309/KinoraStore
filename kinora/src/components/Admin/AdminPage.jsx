@@ -5,6 +5,7 @@ import useInactivityLogout from "../../hooks/useInactivityLogout";
 import AdminLogin from "./AdminLogin";
 import "./AdminPage.css";
 import AdminSales from "./AdminSales";
+import AdminReviews from "./AdminReviews";
 import { loadAllMX, summarizeSales } from "./salesData";
 const availability = (product) => !product.enabled ? "disabled" : Number(product.stock) === 0 ? "soldout" : "available";
 const labels = { disabled: "Deshabilitado", soldout: "Agotado", available: "Disponible" };
@@ -152,7 +153,7 @@ export default function AdminPage() {
             <header className="admin-heading"><div><p className="admin-eyebrow">Administración</p><h1>Administración Kinora</h1><p>Gestiona el inventario, las ventas y los pagos de México.</p></div><div className="admin-account"><span>{session.user.email}</span><button className="admin-button admin-button--secondary" onClick={() => logout()} disabled={signingOut}>{signingOut ? "Cerrando sesión..." : "Cerrar sesión"}</button></div></header>
             {inactivityWarning && <p className="admin-registration-notice" role="status">Tu sesión se cerrará pronto por inactividad.</p>}
             {authError && <p className="admin-error" role="alert">{authError}</p>}
-            <nav className="admin-tabs" aria-label="Secciones de administración"><button className="admin-tab" aria-pressed={section === "inventory"} onClick={() => setSection("inventory")}>Inventario</button><button className="admin-tab" aria-pressed={section === "sales"} onClick={() => setSection("sales")}>Ventas</button></nav>
+            <nav className="admin-tabs" aria-label="Secciones de administración"><button className="admin-tab" aria-pressed={section === "inventory"} onClick={() => setSection("inventory")}>Inventario</button><button className="admin-tab" aria-pressed={section === "sales"} onClick={() => setSection("sales")}>Ventas</button><button className="admin-tab" aria-pressed={section === "reviews"} onClick={() => setSection("reviews")}>Opiniones</button></nav>
             <div hidden={section !== "inventory"}>
                 <section className="admin-summary admin-summary--inventory" aria-label="Resumen del inventario">
                     {[["total", "Total de productos", products.length], ["available", "Disponibles", counts.available], ["soldout", "Agotados", counts.soldout], ["disabled", "Deshabilitados", counts.disabled], ["stock", "Unidades en stock", products.reduce((total, product) => total + Number(product.stock), 0)], ["units", "Unidades vendidas", salesLoading || salesError ? "—" : salesSummary.units]].map(([key, label, count]) => <div className={`admin-stat admin-stat--${key}`} key={key}><span>{label}</span><strong>{productsLoading || productsError ? "—" : count}</strong></div>)}
@@ -163,6 +164,7 @@ export default function AdminPage() {
                         <table className="admin-table"><caption className="admin-sr-only">Inventario de México. Precios en MXN; disponibilidad basada en los valores guardados.</caption><thead><tr>{["Producto / SKU", "Stock original", "Vendidas", "Precio", "Stock actual", "Habilitado", "Disponibilidad", "Acción"].map((label) => <th scope="col" key={label}>{label}</th>)}</tr></thead><tbody>{products.map((product) => <InventoryRow key={`${userId}-${product.product_sku}`} product={product} unitsSold={salesLoading || salesError ? "—" : salesSummary.bySku[product.product_sku] || 0} onSaved={(saved) => setProducts((current) => current.map((item) => item.product_sku === saved.product_sku ? saved : item))} />)}</tbody></table>}
                 </section></div>
             <div hidden={section !== "sales"}><AdminSales key={userId} sales={sales} summary={salesSummary} loading={salesLoading} error={salesError} onRegistered={() => { setProductsLoading(true); setSalesLoading(true); setRetry((value) => value + 1); setSalesRetry((value) => value + 1); }} onRetry={() => setSalesRetry((value) => value + 1)} onPaid={(updated) => setSales((current) => current.map((sale) => sale.id === updated.id ? updated : sale))} products={products} productsReady={!productsLoading && !productsError} /></div>
+            <div hidden={section !== "reviews"}><AdminReviews key={userId} /></div>
             <p className="admin-footer">Un espacio para cuidar cada detalle de Kinora.</p>
         </div></main>
     );

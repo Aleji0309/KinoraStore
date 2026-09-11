@@ -27,3 +27,23 @@ export async function submitProductReview({ productSku, reviewerName, rating, co
   });
   if (error) throw error;
 }
+export async function loadCatalogReviewSummaries() {
+  const { data, error, count } = await supabase.from("product_reviews")
+    .select("product_sku, rating", { count: "exact" })
+    .eq("market", "MX").eq("status", "approved");
+  if (error) throw error;
+  const rows = data ?? [];
+  // A single request must not silently publish partial counts at the API row limit.
+  if (count !== rows.length) throw new Error("Incomplete catalog review summary");
+  const summaries = new Map();
+  for (const review of rows) {
+    const summary = summaries.get(review.product_sku) ?? { count: 0, total: 0 };
+    summary.count += 1;
+    summary.total += Number(review.rating);
+    summaries.set(review.product_sku, summary);
+  }
+  return new Map([...summaries].map(([sku, summary]) => [sku, {
+    count: summary.count,
+    average: summary.total / summary.count,
+  }]));
+}

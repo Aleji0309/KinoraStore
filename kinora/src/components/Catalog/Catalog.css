@@ -203,3 +203,27 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.catalog-product-card__reviews {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.4rem;
+  margin-top: 0.4rem;
+  color: var(--color-fog);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+.catalog-product-card__review-stars {
+  position: relative;
+  display: inline-block;
+  color: color-mix(in srgb, var(--color-bloom) 45%, var(--color-ink));
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.catalog-product-card__review-stars-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+}

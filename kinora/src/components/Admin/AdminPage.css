@@ -151,3 +151,25 @@
   .admin-sale-form { grid-template-columns: minmax(0, 1fr); padding: 0 18px 22px; }
   .admin-sales-table td:last-child { grid-column: 1 / -1; }
 }
+.admin-tabs { max-width: 100%; flex-wrap: wrap; }
+.admin-summary--reviews { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.admin-review-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.admin-reviews-table { table-layout: fixed; }
+.admin-reviews-table td { min-width: 0; font-size: .8rem; overflow-wrap: anywhere; }
+.admin-review-comment { white-space: pre-wrap; }
+.admin-review-stars { color: var(--admin-orange); white-space: nowrap; }
+.admin-review-actions > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.admin-review-actions .admin-button { padding-inline: 10px; max-width: 100%; }
+@media (min-width: 1201px) {
+  .admin-reviews-table th:nth-child(6) { width: 23%; }
+  .admin-reviews-table th:last-child { width: 15%; }
+}
+@media (max-width: 1200px) {
+  .admin-summary--reviews { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .admin-reviews-table .admin-review-comment, .admin-reviews-table .admin-review-actions { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .admin-summary--reviews { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-tabs .admin-tab { padding-inline: 12px; }
+  .admin-reviews-table tr { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
