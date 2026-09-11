@@ -19,11 +19,21 @@ export async function markSalePaid(id) {
   if (error) throw error;
   return data;
 }
-// Replace only this boundary when a verified RPC atomically creates the sale
-// and decrements stock with server-side validation and authorization.
-export const saleRegistrationEnabled = false;
-export async function registerSale() {
-  throw new Error("El registro de nuevas ventas espera una función atómica en la base de datos.");
+// The RPC owns sale creation and stock decrement in one transaction.
+export const saleRegistrationEnabled = true;
+export async function registerSale(draft) {
+  const { data, error } = await supabase.rpc("register_sale", {
+    p_product_sku: draft.product_sku,
+    p_buyer_name: draft.buyer_name.trim(),
+    p_quantity: Number(draft.quantity),
+    p_unit_price: Number(draft.unit_price),
+    p_payment_status: draft.payment_status,
+    p_expected_payment_date: draft.expected_payment_date || null,
+    p_sold_by: draft.sold_by.trim() || null,
+    p_notes: draft.notes.trim() || null,
+  });
+  if (error) throw error;
+  return data;
 }
 export function summarizeSales(sales) {
   return sales.reduce((summary, sale) => {
@@ -48,8 +58,6 @@ export function validateSale(draft, products) {
   else if (product && Number(draft.quantity) > Number(product.stock)) errors.quantity = "La cantidad supera el stock disponible.";
   if (!validInteger(draft.unit_price)) errors.unit_price = "Usa un precio entero de 0 o más.";
   if (!["pending", "paid"].includes(draft.payment_status)) errors.payment_status = "Selecciona el estado de pago.";
-  if (draft.payment_status === "pending" && !draft.expected_payment_date) errors.expected_payment_date = "Indica la fecha esperada de pago.";
   if (draft.expected_payment_date && (!/^\d{4}-\d{2}-\d{2}$/.test(draft.expected_payment_date) || !Number.isFinite(Date.parse(draft.expected_payment_date)))) errors.expected_payment_date = "Indica una fecha válida.";
-  if (!draft.sold_by.trim()) errors.sold_by = "Indica quién realizó la venta.";
   return errors;
 }
