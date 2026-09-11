@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import Logo from "../common/Logo/Logo";
+import useInactivityLogout from "../../hooks/useInactivityLogout";
 import AdminLogin from "./AdminLogin";
 import "./AdminPage.css";
 import AdminSales from "./AdminSales";
@@ -117,18 +118,30 @@ export default function AdminPage() {
         loadSales();
         return () => { active = false; };
     }, [userId, salesRetry]);
-    const logout = async () => {
+    const logout = async (inactivity = false) => {
         setSigningOut(true);
         setAuthError("");
+        if (inactivity) {
+            setSession(null);
+            setProducts([]);
+            setSales([]);
+            setSection("inventory");
+        }
         try {
             const { error } = await supabase.auth.signOut();
             if (error) throw error;
             setProducts([]);
             setSales([]);
             setSession(null);
-        } catch { setAuthError("No se pudo cerrar la sesión. Intenta de nuevo."); }
+        } catch {
+            if (inactivity) {
+                await supabase.auth.signOut({ scope: "local" }).catch(() => {});
+                setAuthError("La sesión se cerró por inactividad. Ingresa de nuevo.");
+            } else setAuthError("No se pudo cerrar la sesión. Intenta de nuevo.");
+        }
         finally { setSigningOut(false); }
     };
+    const inactivityWarning = useInactivityLogout(userId, () => logout(true));
     if (loading) return <main className="admin-shell admin-login-shell"><p role="status">Cargando administración...</p></main>;
     if (!session) return <AdminLogin onLogin={setSession} sessionError={authError} />;
     const salesSummary = summarizeSales(sales);
@@ -136,7 +149,8 @@ export default function AdminPage() {
     return (
         <main className="admin-shell"><div className="admin-container">
             <div className="admin-brandbar"><Logo className="admin-logo" /><span className="admin-market">México · MXN</span></div>
-            <header className="admin-heading"><div><p className="admin-eyebrow">Administración</p><h1>Administración Kinora</h1><p>Gestiona el inventario, las ventas y los pagos de México.</p></div><div className="admin-account"><span>{session.user.email}</span><button className="admin-button admin-button--secondary" onClick={logout} disabled={signingOut}>{signingOut ? "Cerrando sesión..." : "Cerrar sesión"}</button></div></header>
+            <header className="admin-heading"><div><p className="admin-eyebrow">Administración</p><h1>Administración Kinora</h1><p>Gestiona el inventario, las ventas y los pagos de México.</p></div><div className="admin-account"><span>{session.user.email}</span><button className="admin-button admin-button--secondary" onClick={() => logout()} disabled={signingOut}>{signingOut ? "Cerrando sesión..." : "Cerrar sesión"}</button></div></header>
+            {inactivityWarning && <p className="admin-registration-notice" role="status">Tu sesión se cerrará pronto por inactividad.</p>}
             {authError && <p className="admin-error" role="alert">{authError}</p>}
             <nav className="admin-tabs" aria-label="Secciones de administración"><button className="admin-tab" aria-pressed={section === "inventory"} onClick={() => setSection("inventory")}>Inventario</button><button className="admin-tab" aria-pressed={section === "sales"} onClick={() => setSection("sales")}>Ventas</button></nav>
             <div hidden={section !== "inventory"}>

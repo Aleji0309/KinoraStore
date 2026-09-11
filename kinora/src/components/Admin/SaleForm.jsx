@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import { registerSale, saleRegistrationEnabled, validateSale } from "./salesData";
-export default function SaleForm({ products, onClose, onRegistered, saving, onSavingChange }) {
-  const [draft, setDraft] = useState({ product_sku: "", buyer_name: "", quantity: "1", unit_price: "", payment_status: "pending", expected_payment_date: "", sold_by: "", notes: "" });
+import { registerSale, updateSale, availableSaleStock, saleRegistrationEnabled, validateSale } from "./salesData";
+export default function SaleForm({ products, onClose, onRegistered, saving, onSavingChange, sale = null }) {
+  const [draft, setDraft] = useState(() => sale ? { product_sku: sale.product_sku, buyer_name: sale.buyer_name || "", quantity: String(sale.quantity), unit_price: String(sale.unit_price), payment_status: sale.payment_status, expected_payment_date: sale.expected_payment_date || "", sold_by: sale.sold_by || "", notes: sale.notes || "" } : { product_sku: "", buyer_name: "", quantity: "1", unit_price: "", payment_status: "pending", expected_payment_date: "", sold_by: "", notes: "" });
   const submitting = useRef(false);
   const [reviewed, setReviewed] = useState(false);
   const [message, setMessage] = useState("");
-  const errors = validateSale(draft, products);
+  const errors = validateSale(draft, products, sale);
   const selected = products.find((product) => product.product_sku === draft.product_sku);
   const change = (field, value) => {
     setReviewed(false);
@@ -14,16 +14,17 @@ export default function SaleForm({ products, onClose, onRegistered, saving, onSa
   };
   const submit = async (event) => {
     event.preventDefault();
-    if (submitting.current || !saleRegistrationEnabled) return;
+    if (submitting.current || (!sale && !saleRegistrationEnabled)) return;
     setReviewed(true);
     setMessage("");
     if (Object.keys(errors).length) return;
     submitting.current = true;
     onSavingChange(true);
     try {
-      await registerSale(draft);
-    } catch {
-      setMessage("No se pudo registrar la venta. Verifica las existencias y los datos e intenta de nuevo. Si se perdió la conexión, revisa el historial antes de reintentar.");
+      if (sale) await updateSale(sale.id, draft);
+      else await registerSale(draft);
+    } catch (error) {
+      setMessage(sale ? (error.code === "PGRST202" ? "La edición requiere configurar la función update_sale en la base de datos." : "No se pudo actualizar la venta. Verifica las existencias y los datos. Si se perdió la conexión, revisa el historial antes de reintentar.") : "No se pudo registrar la venta. Verifica las existencias y los datos e intenta de nuevo. Si se perdió la conexión, revisa el historial antes de reintentar.");
       return;
     } finally {
       submitting.current = false;
@@ -33,15 +34,16 @@ export default function SaleForm({ products, onClose, onRegistered, saving, onSa
   };
   const fieldProps = (field) => ({ disabled: saving, id: `sale-${field}`, value: draft[field], onChange: (event) => change(field, event.target.value), "aria-invalid": reviewed && Boolean(errors[field]), "aria-describedby": reviewed && errors[field] ? `error-${field}` : undefined });
   const errorFor = (field) => reviewed && errors[field] && <span id={`error-${field}`} className="admin-error">{errors[field]}</span>;
-  return <section className="admin-inventory admin-sale-form-panel" aria-labelledby="sale-form-title"><div className="admin-section-heading admin-section-actions"><div><h2 id="sale-form-title">Registrar venta</h2><p>Completa los datos de la venta.</p></div><button className="admin-button admin-button--secondary" onClick={onClose} disabled={saving}>Cerrar formulario</button></div><form className="admin-sale-form" onSubmit={submit} noValidate>
-    <label className="admin-form-wide" htmlFor="sale-product_sku">Producto<select {...fieldProps("product_sku")} autoFocus><option value="">Selecciona un producto</option>{products.map((product) => <option key={product.product_sku} value={product.product_sku}>{product.products?.name || product.product_sku} · {product.product_sku}</option>)}</select>{errorFor("product_sku")}<small>Stock disponible: {selected ? selected.stock : "—"} unidades</small></label>
+  return <section className="admin-inventory admin-sale-form-panel" aria-labelledby="sale-form-title"><div className="admin-section-heading admin-section-actions"><div><h2 id="sale-form-title">{sale ? "Editar venta" : "Registrar venta"}</h2><p>Completa los datos de la venta.</p></div><button className="admin-button admin-button--secondary" onClick={onClose} disabled={saving}>Cerrar formulario</button></div><form className="admin-sale-form" onSubmit={submit} noValidate>
+    {sale && <><label>ID de venta<input value={sale.id} readOnly /></label><label>Fecha de registro<input value={sale.created_at} readOnly /></label></>}
+    <label className="admin-form-wide" htmlFor="sale-product_sku">Producto<select {...fieldProps("product_sku")} autoFocus><option value="">Selecciona un producto</option>{products.map((product) => <option key={product.product_sku} value={product.product_sku}>{product.products?.name || product.product_sku} · {product.product_sku}</option>)}</select>{errorFor("product_sku")}<small>Stock disponible: {selected ? availableSaleStock(selected, sale) : "—"} unidades</small></label>
     <label htmlFor="sale-buyer_name">Comprador<input {...fieldProps("buyer_name")} autoComplete="off" required />{errorFor("buyer_name")}</label>
     <label htmlFor="sale-sold_by">Vendido por (opcional)<input {...fieldProps("sold_by")} />{errorFor("sold_by")}</label>
-    <label htmlFor="sale-quantity">Cantidad<input {...fieldProps("quantity")} type="number" min="1" max={selected?.stock} step="1" inputMode="numeric" required />{errorFor("quantity")}</label>
+    <label htmlFor="sale-quantity">Cantidad<input {...fieldProps("quantity")} type="number" min="1" max={selected ? availableSaleStock(selected, sale) : undefined} step="1" inputMode="numeric" required />{errorFor("quantity")}</label>
     <label htmlFor="sale-unit_price">Precio unitario · MXN<input {...fieldProps("unit_price")} type="number" min="0" step="1" inputMode="numeric" required />{errorFor("unit_price")}</label>
     <label htmlFor="sale-payment_status">Estado de pago<select {...fieldProps("payment_status")}><option value="pending">Pendiente</option><option value="paid">Pagado</option></select>{errorFor("payment_status")}</label>
     <label htmlFor="sale-expected_payment_date">Fecha esperada de pago (opcional)<input {...fieldProps("expected_payment_date")} type="date" />{errorFor("expected_payment_date")}</label>
     <label className="admin-form-wide" htmlFor="sale-notes">Notas (opcional)<textarea {...fieldProps("notes")} rows="3" /></label>
-    <div className="admin-form-wide"><div className="admin-form-actions"><button className="admin-button" type="submit" disabled={saving || !saleRegistrationEnabled}>{saving ? "Guardando..." : "Guardar venta"}</button></div><p className="admin-error" role="alert">{message || (reviewed && Object.keys(errors).length ? "Revisa los campos indicados." : "")}</p></div>
+    <div className="admin-form-wide"><div className="admin-form-actions"><button className="admin-button" type="submit" disabled={saving || (!sale && !saleRegistrationEnabled)}>{saving ? "Guardando..." : sale ? "Guardar cambios" : "Guardar venta"}</button></div><p className="admin-error" role="alert">{message || (reviewed && Object.keys(errors).length ? "Revisa los campos indicados." : "")}</p></div>
   </form></section>;
 }
