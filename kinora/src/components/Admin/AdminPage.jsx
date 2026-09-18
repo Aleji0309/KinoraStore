@@ -6,7 +6,7 @@ import AdminLogin from "./AdminLogin";
 import "./AdminPage.css";
 import AdminSales from "./AdminSales";
 import AdminReviews from "./AdminReviews";
-import { loadAllMX, summarizeSales } from "./salesData";
+import { loadAllMX, loadSales, summarizeSales } from "./salesData";
 const availability = (product) => !product.enabled ? "disabled" : Number(product.stock) === 0 ? "soldout" : "available";
 const labels = { disabled: "Deshabilitado", soldout: "Agotado", available: "Disponible" };
 const validInteger = (value) => /^\d+$/.test(String(value)) && Number.isSafeInteger(Number(value));
@@ -103,20 +103,17 @@ export default function AdminPage() {
     useEffect(() => {
         if (!userId) return;
         let active = true;
-        const loadSales = async () => {
+        const refreshSales = async () => {
             setSalesLoading(true);
             setSalesError("");
             setSales([]);
             try {
-                const data = await loadAllMX(
-                    "sales",
-                    "id, market, product_sku, buyer_name, quantity, unit_price, payment_status, sale_status, expected_payment_date, paid_at, sold_by, notes, created_at, products(name)",
-                    "id"
-                ); if (active) setSales(data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
+                const data = await loadSales();
+                if (active) setSales(data);
             } catch { if (active) setSalesError("No se pudieron cargar las ventas. Usa Actualizar ventas para reintentar."); }
             finally { if (active) setSalesLoading(false); }
         };
-        loadSales();
+        refreshSales();
         return () => { active = false; };
     }, [userId, salesRetry]);
     const logout = async (inactivity = false) => {

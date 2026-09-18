@@ -1,4 +1,5 @@
 import { supabase } from "../../lib/supabase";
+export { summarizeSales } from "./salesMetrics";
 // Fetch every page so historical totals are not truncated by the API row limit.
 export async function loadAllMX(table, columns, order) {
   const rows = [];
@@ -18,6 +19,14 @@ export async function markSalePaid(id) {
     .eq("sale_status", "sold").select("*").single();
   if (error) throw error;
   return data;
+}
+export async function loadSales() {
+  const sales = await loadAllMX("sales", "id, market, product_sku, buyer_name, quantity, unit_price, unit_cost, investment_round_id, payment_status, sale_status, expected_payment_date, paid_at, sold_by, notes, created_at, products(name)", "id");
+  return sales.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+}
+export async function loadInvestmentRounds() {
+  const rounds = await loadAllMX("investment_rounds", "id, market, name, amount, invested_at, created_at", "id");
+  return rounds.sort((a, b) => String(a.invested_at ?? a.created_at).localeCompare(String(b.invested_at ?? b.created_at)));
 }
 // The RPC owns sale creation and stock decrement in one transaction.
 export const saleRegistrationEnabled = true;
@@ -53,19 +62,6 @@ export async function updateSale(id, draft) {
 }
 export function availableSaleStock(product, sale) {
   return Number(product.stock) + (sale?.product_sku === product.product_sku ? Number(sale.quantity) : 0);
-}
-export function summarizeSales(sales) {
-  return sales.reduce((summary, sale) => {
-    if (sale.sale_status === "cancelled") return summary;
-    const quantity = Number(sale.quantity);
-    const total = quantity * Number(sale.unit_price);
-    summary.total += total;
-    summary.units += quantity;
-    if (sale.payment_status === "paid") summary.paid += total;
-    if (sale.payment_status === "pending") summary.pending += total;
-    summary.bySku[sale.product_sku] = (summary.bySku[sale.product_sku] || 0) + quantity;
-    return summary;
-  }, { total: 0, paid: 0, pending: 0, units: 0, bySku: {} });
 }
 export const validInteger = (value) => /^\d+$/.test(String(value)) && Number.isSafeInteger(Number(value));
 export function validateSale(draft, products, sale = null) {

@@ -358,6 +358,41 @@
   white-space: pre-line;
 }
 
+.product-how-to-play ol,
+.product-how-to-play ul {
+  margin: 1rem 0 0;
+  padding-left: 1.5rem;
+  color: var(--color-fog);
+  line-height: 1.7;
+}
+
+.product-how-to-play li + li {
+  margin-top: 0.65rem;
+}
+
+.product-how-to-play__group {
+  margin-top: 1.5rem;
+}
+
+.product-how-to-play dl {
+  margin: 0.75rem 0 0;
+  line-height: 1.7;
+}
+
+.product-how-to-play dl > div + div {
+  margin-top: 0.75rem;
+}
+
+.product-how-to-play dt {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.product-how-to-play dd {
+  margin: 0;
+  color: var(--color-fog);
+}
+
 .product-specifications__warning {
   margin-top: 1rem;
   border-left: 4px solid var(--color-sun);
