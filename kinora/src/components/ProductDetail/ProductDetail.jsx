@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProductReviews from "./ProductReviews";
+import HowToPlay from "./HowToPlay";
 import Footer from "../Home/Footer";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { marketConfig } from "../../config/markets";
@@ -144,6 +145,7 @@ const ProductDetail = ({ product }) => {
             )}
           </section>
         )}
+        <HowToPlay instructions={product.howToPlay} />
         {marketConfig.market === "MX" && <ProductReviews key={product.id} productSku={product.id} />}
       </main>
       <Footer />

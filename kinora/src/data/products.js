@@ -1,5 +1,4 @@
 import { marketConfig } from "../config/markets.js";
-
 const magicBeansImage = "/images/products/KIN-LOG-001-main.png";
 const timeMachineImage = "/images/products/KIN-LOG-002-main.png";
 const woodenSudokuImage = "/images/products/KIN-LOG-003-main.png";
@@ -115,6 +114,20 @@ export const catalogProducts = [
     tags: ["electronico", "memoria", "secuencias", "luces"],
     featured: true,
     stockStatus: "order_only",
+  },
+  {
+    id: "KIN-FOC-002",
+    slug: "giiker-super-reversi",
+    name: "GiiKER Super Reversi",
+    shortDescription: "Un juego de estrategia electrónico e interactivo inspirado en el clásico Reversi.",
+    description: "Juego de estrategia electrónico e interactivo inspirado en el clásico Reversi. Diseñado para ejercitar la concentración, la lógica, la planificación y el pensamiento estratégico mediante partidas dinámicas e interactivas.",
+    image: "/images/products/KIN-FOC-002.jpg",
+    images: ["/images/products/KIN-FOC-002.jpg", "/images/products/KIN-FOC-002-02.jpg%20"],
+    category: "Enfoque y concentración",
+    categoryRefs: ["enfoque-y-concentracion"],
+    needs: ["enfoque-y-tareas"],
+    tags: ["giiker", "reversi", "electronico", "logica", "estrategia"],
+    featured: false,
   },
   {
     id: "KIN-LOG-003",
@@ -506,6 +519,10 @@ const productMetadata = {
   "KIN-LOG-001": { skills: ["pensamiento lógico", "concentración", "reconocimiento de patrones", "resolución de problemas"] },
   "KIN-LOG-002": { skills: ["pensamiento lógico", "concentración", "planificación", "resolución de problemas"], ageRecommendation: "14 años en adelante" },
   "KIN-FOC-001": { skills: ["pensamiento lógico", "deducción", "reconocimiento de patrones", "resolución de problemas", "estrategia"], ageRecommendation: "5 años en adelante" },
+  "KIN-FOC-002": {
+    skills: ["concentración", "pensamiento lógico", "planificación", "pensamiento estratégico"],
+    ageRecommendation: "6 años en adelante",
+  },
   "KIN-LOG-003": { skills: ["pensamiento lógico", "concentración", "percepción espacial", "resolución de problemas", "razonamiento numérico"], ageRecommendation: "3 años en adelante" },
   "KIN-LOG-004": { skills: ["pensamiento lógico", "concentración", "percepción espacial", "planificación", "resolución de problemas"], ageRecommendation: "6 años en adelante" },
   "KIN-LOG-005": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "resolución de problemas", "pensamiento creativo"], ageRecommendation: "6 años en adelante" },
@@ -523,6 +540,122 @@ const productMetadata = {
   "KIN-LOG-013": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "concentración", "resolución de problemas"] },
   "KIN-LOG-014": { skills: ["pensamiento lógico", "percepción espacial", "planificación", "concentración", "resolución de problemas"] },
   "KIN-LOG-015": { skills: ["pensamiento lógico", "percepción espacial", "concentración", "planificación", "resolución de problemas"] },
+};
+const productInstructions = {
+  "KIN-FID-ARTURITO": {
+    intro: "Combina giros y desplazamientos para ordenar las esferas de colores.",
+    steps: ["Observa cómo están distribuidas las esferas en cada sección.", "Gira una sección y desplaza las esferas entre las posiciones disponibles.", "Combina los movimientos hasta ordenar los colores en las secciones."],
+    tips: ["Prueba un movimiento a la vez para seguir el recorrido de cada esfera."],
+  },
+  "KIN-LOG-001": {
+    intro: "Explora los giros del Time Machine y reorganiza sus números.",
+    steps: ["Observa la posición de los números antes de girar las piezas.", "Gira las secciones y comprueba qué números cambian de lugar.", "Prueba secuencias de movimientos para devolver los números a su posición."],
+    tips: ["Empieza con pocos giros e intenta deshacerlos en orden inverso."],
+  },
+  "KIN-LOG-002": {
+    intro: "Completa el sudoku con las fichas numéricas de madera.",
+    steps: ["Elige un reto del libro y coloca las pistas iniciales en el tablero.", "Completa los espacios con números del 1 al 9, sin repetirlos en cada fila, columna ni bloque de 3×3.", "Mantén las pistas iniciales y revisa el tablero completo.", "Consulta la solución del libro si necesitas comprobar tu resultado."],
+  },
+  "KIN-FOC-001": {
+    intro: "Descifra una combinación secreta de colores antes de quedarte sin intentos.",
+    steps: ["Propón una combinación de colores como primer intento.", "Observa las pistas que recibes y descarta las combinaciones que no encajen.", "Ajusta tu siguiente intento usando las pistas anteriores.", "Continúa hasta descubrir el código o agotar los intentos disponibles."],
+    challenges: "Más de 600 desafíos de dificultad progresiva.",
+    notes: ["Puede jugarse de manera individual o entre dos jugadores."],
+  },
+  "KIN-FOC-002": {
+    intro: "Super Reversi está basado en el clásico juego de estrategia Reversi. El objetivo es terminar la partida con más piezas de tu color que tu oponente.",
+    steps: ["Coloca una pieza de forma que encierres una o más piezas del oponente entre tus piezas.", "Las piezas atrapadas cambian a tu color.", "Continúen alternando turnos mientras intentan controlar la mayor parte del tablero.", "La partida termina cuando ya no quedan movimientos disponibles.", "Gana quien tenga más piezas de su color en el tablero."],
+    modes: [
+      { name: "Modo individual", description: "Juega contra el sistema y practica tu estrategia." },
+      { name: "Head-to-Head", description: "Dos jugadores compiten entre sí." },
+      { name: "Challenge", description: "Resuelve desafíos progresivos de lógica y estrategia." },
+    ],
+    challenges: "500 desafíos.",
+  },
+  "KIN-LOG-003": {
+    intro: "Coloca las piezas numéricas para completar cada reto de Number Puzzle.",
+    steps: ["Elige un desafío del libro y observa sus condiciones.", "Coloca las fichas numéricas en el tablero respetando las indicaciones del reto.", "Prueba distintas posiciones hasta completar el tablero y cumplir las condiciones."],
+    challenges: "120 desafíos en 4 niveles.",
+    notes: ["Algunos desafíos requieren sumas sencillas; sigue las indicaciones de cada uno."],
+  },
+  "KIN-LOG-004": {
+    intro: "Encaja las piezas tridimensionales de IQ Fit sin dejar espacios libres.",
+    steps: ["Elige un desafío del libro y coloca las piezas iniciales como se indica.", "Gira y orienta las piezas restantes para encontrar dónde encajan.", "Completa el tablero sin cambiar la configuración inicial del reto."],
+    challenges: "120 desafíos de dificultad progresiva.",
+  },
+  "KIN-LOG-005": {
+    intro: "Llena el tablero con las piezas geométricas de madera.",
+    steps: ["Observa las formas y el espacio disponible en el tablero.", "Coloca las piezas y prueba distintas orientaciones para combinarlas.", "Reorganiza las que necesites hasta encajar todas sin dejar huecos."],
+    tips: ["Si una pieza no encaja, revisa también la posición de las que ya colocaste."],
+  },
+  "KIN-LOG-006": {
+    intro: "Encuentra el recorrido que permite liberar el mecanismo del candado.",
+    steps: ["Observa el recorrido del laberinto y las partes móviles del candado.", "Desplaza el mecanismo por los caminos disponibles.", "Retrocede cuando una ruta se cierre y prueba otra hasta lograr abrirlo."],
+    tips: ["Avanza con movimientos suaves, sin forzar el mecanismo."],
+  },
+  "KIN-LOG-007": {
+    intro: "Reconstruye el cubo con sus 54 piezas geométricas de madera.",
+    steps: ["Observa el cubo armado y la forma de sus piezas antes de desarmarlo.", "Combina las piezas probando distintas posiciones y orientaciones.", "Ajusta el conjunto hasta recuperar la forma del cubo completo."],
+    tips: ["Ten en cuenta el espacio interior, además de las caras que puedes ver."],
+  },
+  "KIN-LOG-008": {
+    intro: "Desenreda las cuerdas de colores dentro de la esfera transparente.",
+    steps: ["Observa dónde se cruzan las cuerdas desde varios ángulos.", "Mueve los controles de colores por las ranuras exteriores para reorganizarlas.", "Aprovecha el giro de la esfera interior para revisar y ajustar el recorrido.", "Continúa hasta que las cuerdas queden rectas, separadas y sin cruces."],
+  },
+  "KIN-LOG-009": {
+    intro: "Explora 24 rompecabezas de piezas metálicas entrelazadas.",
+    steps: ["Elige un rompecabezas del set y observa cómo se conectan sus piezas.", "Prueba giros y desplazamientos suaves hasta encontrar una posición que permita separarlas.", "Vuelve a unir las piezas y pasa a otro diseño del set."],
+    tips: ["La solución depende de la posición de las piezas, no de aplicar fuerza."],
+  },
+  "KIN-LOG-010": {
+    intro: "Reconstruye los patrones de líneas del cubo mediante giros de sus caras.",
+    steps: ["Observa cómo se conectan las líneas entre las piezas.", "Gira las caras para acercar los segmentos que forman cada patrón.", "Revisa las conexiones después de cada secuencia y continúa reorganizando las líneas."],
+    tips: ["Sigue el recorrido de una línea para identificar qué piezas necesitas mover."],
+  },
+  "KIN-FID-002": {
+    intro: "Alterna giros y desplazamientos para reorganizar las bolitas.",
+    steps: ["Observa la distribución de colores del cubo.", "Rota sus secciones en una u otra dirección y mueve las bolitas entre las posiciones disponibles.", "Repite las combinaciones de movimientos que te acerquen al orden que buscas."],
+  },
+  "KIN-FID-003": {
+    intro: "Mueve las bolitas de colores entre los espacios de la esfera.",
+    steps: ["Localiza las bolitas y los espacios por los que pueden desplazarse.", "Presiona una bolita para cambiarla de posición dentro de la esfera.", "Continúa moviendo las bolitas para reorganizar los colores."],
+    tips: ["Observa qué espacio queda disponible después de cada movimiento."],
+  },
+  "KIN-FID-004": {
+    intro: "Combina la rotación de las secciones con el movimiento de las bolitas de colores.",
+    steps: ["Sujeta el fidget por su superficie texturizada y observa los colores.", "Gira una sección y desplaza las bolitas a las posiciones disponibles.", "Alterna ambos movimientos para reorganizar las piezas por colores."],
+  },
+  "KIN-FID-ESTRELLA": {
+    intro: "Explora las secciones giratorias de los seis lados del Magic Bean.",
+    steps: ["Observa las bolitas de colores en las distintas secciones.", "Gira las secciones sobre sus ejes y desplaza las bolitas entre posiciones.", "Combina giros para reorganizar la distribución de colores."],
+    modes: [{ name: "Giro sobre su eje", description: "También puedes hacerlo girar sobre su eje como otra forma de jugar." }],
+  },
+  "KIN-LOG-011": {
+    intro: "Reorganiza los números y las referencias de calendario de este cubo de múltiples capas.",
+    steps: ["Observa los patrones de las caras y la posición de sus números.", "Gira las capas y comprueba cómo se desplazan las piezas.", "Planea pequeñas secuencias para reorganizar las referencias del calendario."],
+    tips: ["Trabaja con pocas capas a la vez para seguir mejor los cambios."],
+  },
+  "KIN-LOG-012": {
+    intro: "Combina las piezas tridimensionales para resolver los retos de la pirámide.",
+    steps: ["Elige un desafío del libro y observa la configuración indicada.", "Coloca y orienta las piezas siguiendo las condiciones del reto.", "Prueba distintos encajes hasta completar la configuración solicitada."],
+    challenges: "200 desafíos.",
+    tips: ["Revisa la orientación de las piezas desde distintos ángulos."],
+  },
+  "KIN-LOG-013": {
+    intro: "Descubre cómo desmontar y volver a armar los seis mecanismos metálicos.",
+    steps: ["Escoge uno de los seis retos y observa sus puntos de unión.", "Explora los movimientos que permiten sus piezas hasta liberar el mecanismo.", "Recuerda la secuencia para volver a ensamblarlo antes de probar el siguiente reto."],
+    tips: ["Si se bloquea, vuelve al movimiento anterior y prueba otra orientación sin forzarlo."],
+  },
+  "KIN-LOG-014": {
+    intro: "Resuelve tres mecanismos de desbloqueo de dificultad avanzada.",
+    steps: ["Examina cómo se sujetan las piezas de uno de los mecanismos.", "Prueba una secuencia de movimientos y revisa qué partes quedan libres.", "Ajusta la secuencia hasta separar las piezas y después busca cómo volver a unirlas."],
+    tips: ["Observa qué cambia con cada movimiento antes de continuar."],
+  },
+  "KIN-LOG-015": {
+    intro: "Explora los diseños Key Lock, S Lock y Bicycle del set vintage.",
+    steps: ["Elige un diseño y observa dónde se entrelazan sus piezas.", "Busca la orientación y los movimientos que permiten separarlas.", "Vuelve a ensamblar el diseño y prueba otro de los tres rompecabezas."],
+    tips: ["Cada diseño tiene un recorrido diferente; evita forzar las piezas."],
+  },
 };
 const productSpecifications = {
   "KIN-FID-ARTURITO": {
@@ -588,6 +721,23 @@ const productSpecifications = {
       { label: "Nivel de desafío", value: "Progresivo" },
       { label: "Modo de juego", value: "Individual o para dos jugadores" },
       { label: "Uso recomendado", value: "Recreativo y viajes" },
+      { label: "Alimentación", value: "Requiere 3 pilas AA (no incluidas)." },
+    ],
+  },
+  "KIN-FOC-002": {
+    primary: [
+      { label: "Tipo de juego", value: "Juego de estrategia y lógica" },
+      { label: "Modalidad", value: "Reversi electrónico interactivo" },
+      { label: "Número de desafíos", value: "500" },
+      { label: "Jugadores", value: "1–2" },
+      { label: "Formato de venta", value: "Unidad" },
+      { label: "Portátil", value: true },
+    ],
+    details: [
+      { label: "Nivel de desafío", value: "Progresivo" },
+      { label: "Modo de juego", value: "Individual o para dos jugadores" },
+      { label: "Uso recomendado", value: "Estrategia, lógica, concentración y entretenimiento" },
+      { label: "Alimentación", value: "Requiere 3 pilas AA (no incluidas)." },
     ],
   },
   "KIN-LOG-003": {
@@ -895,7 +1045,7 @@ const productSpecifications = {
 export const products = catalogProducts
   .map((product) => {
     const commercialData = marketConfig.commerce[product.id];
-    if (!commercialData || commercialData.enabled === false) return null;
+    if (commercialData?.enabled === false) return null;
     return {
       ...product,
       ...commercialData,
@@ -903,6 +1053,7 @@ export const products = catalogProducts
       locale: marketConfig.locale,
       priceStatus: "final",
       ...productMetadata[product.id],
+      howToPlay: productInstructions[product.id],
       specifications: {
         ...productSpecifications[product.id],
         details: [
